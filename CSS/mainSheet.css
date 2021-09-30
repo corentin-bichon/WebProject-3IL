@@ -1,0 +1,10 @@
+ @import url('mainCSS.css') ;
+ @charset 'UTF-8' ;
+
+
+ :root {
+
+    --primarycolor : green ;
+    --secondarycolor : red ;
+
+}
