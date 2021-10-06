@@ -32,3 +32,128 @@ body {
     border: 1px solid #fff;      
     border-radius: 4px;          
 }
+
+/*.grid>.grid-item {
+    align-content: stretch;
+    align-items: stretch;
+    display: flex;
+}
+
+.grid>.grid-item>* {
+    height: 100%;
+    width: 100%;
+}
+
+.card {
+    background-color: var(--primarycolor);
+    border: 1px solid var(--primarycolor);
+    border-radius: .125rem;
+    box-shadow: 0 1.6px 3.6px 0 var(--primarycolor),0 .3px .9px 0 var(--primarycolor);
+    color: var(--theme-text);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    max-width: 100%;
+    outline-color: var(--theme-text);
+    padding: 1.5rem 0 0;
+    position: relative;
+}
+
+.card.is-branded {
+    border-color: transparent;
+    border: 1px solid var(--primarycolor);
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.card.is-branded .theme-header {
+    border-bottom: 1px solid var(--primarycolor);
+    margin-left: -1px;
+    margin-right: -1px;
+    margin-top: -26px;
+}
+
+.card.is-branded>:first-child {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.card .theme-header {
+    margin-bottom: 1.125rem;
+    position: relative;
+}
+
+.card .theme-content, .card .theme-footer, .card .theme-header {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.card>:first-child {
+    border-top-left-radius: .125rem;
+    border-top-right-radius: .125rem;
+}
+
+.has-background-azure-card {
+    background-color: #0078d4!important;
+    outline-color: #fff!important;
+}
+
+.card.is-branded .theme-header:first-child {
+    padding-top: 0;
+}*/
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.btn-theme {
+
+}
+
+
+.forecast {
+    margin: 0;
+    padding: .3rem;
+    background-color: #eee;
+    font: 1rem 'Fira Sans', sans-serif;
+}
+
+.forecast > h1,
+.day-forecast {
+    margin: .5rem;
+    padding: .3rem;
+    font-size: 1.2rem;
+}
+
+.day-forecast {
+    background: right/contain content-box border-box no-repeat
+        url('/media/examples/rain.svg') white;
+}
+
+.day-forecast > h2,
+.day-forecast > p {
+    margin: .2rem;
+    font-size: 1rem;
+}
