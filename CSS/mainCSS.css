@@ -9,6 +9,12 @@ body {
     width:100%;
 }
 
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,500,300,700);
+
+* {
+  font-family: Open Sans;
+}
+
 
 /* Module barre de navigation */
 
@@ -215,9 +221,8 @@ section {
 
     background-color: #DBF6E9;
     z-index: 1;
-    height: 100%;
-    width: 100%;
     margin-top: 400px;
+    margin-bottom: 400px;
 }
 
 .angle-haut:before {
@@ -249,3 +254,70 @@ section {
     padding: 0;
     margin: 0;
 }
+
+
+/* Module pied de page  */
+
+.footer-title {
+   width: 100%;
+   display: inline-block;
+   background: #333;
+   color: white;
+  
+   text-align: center;
+   font-size: 22px;
+   font-weight: 700;
+}
+  
+.footer-global {
+    display: flex;      
+    flex-direction: row;        
+    padding:0;  
+    background-color: #DBF6E9 ; 
+    text-align: center;
+    padding-top: 10px;
+}  
+
+.footer-column {
+    width: 33%;
+    display: inline-block;
+    vertical-align: top;
+    margin: auto;
+}
+
+.footer-beginning {
+
+}
+
+.footer-middle {
+    text-align: initial;
+    width: 17em;
+}
+
+
+.footer-end {
+    padding-left: 15px;
+}
+
+.footer-end h3 {
+
+}
+
+.footer-end p {
+    height: 20px;
+    color: #92999f;
+    font-size: 13px;
+    font-weight: normal;
+}
+
+#footer-logo {
+    width: 100px;
+}
+
+#footer-icon {
+    height: 25px;
+    vertical-align: middle;
+}
+
+
+
