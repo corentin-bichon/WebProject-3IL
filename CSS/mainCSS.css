@@ -276,6 +276,7 @@ section {
     background-color: #DBF6E9 ; 
     text-align: center;
     padding-top: 10px;
+    margin: 0; 
 }  
 
 .footer-column {

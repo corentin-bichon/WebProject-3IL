@@ -1,17 +1,13 @@
-<!DOCTYPE html>
 <html> 
 	<head> 
-		<link rel="stylesheet" href="..\CSS\mainSheet.css" type="text/css"/>
+		<link rel="stylesheet" href="CSS\mainSheet.css" type="text/css"/>
 		<meta charset="utf-8"/>
+		<link rel="shortcut icon" type="image/x-icon" href="ressources/logo/favicon.ico">
+		<title>Thèmes - Ruthen Quiz</title>
 	</head>
 	<body>
-		<div class="navbar">
-       		 <a href="../index.html">Accueil</a> 
-       		 <a href="../forms.html">Formulaire</a>
-       		 <a href="pages/theme.html">Thèmes</a>
-       		 <a href="../create.html">Créer</a> 
-        	 <a href="../account.html">Compte</a> 
-		</div>
+		
+		<?php require_once 'extensions/navbar.html'; ?>
 
 		<button class="btn btn-theme"> Salut
 			
@@ -126,4 +122,7 @@
             </li> 
         </ul>
 	</body>
+
+	<?php require_once 'extensions/footer.html'; ?>
+
 </html>

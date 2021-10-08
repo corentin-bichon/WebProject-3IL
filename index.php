@@ -9,7 +9,7 @@
 
 	<body>
 
-		<?php require 'extensions/navbar.php'; ?>
+		<?php require_once 'extensions/navbar.html'; ?>
 
 		<br><br><br><br><br>
 
@@ -36,6 +36,6 @@
 		<br><br><br><br><br>
 	</body>
 
-	<?php require 'extensions/footer.php'; ?>
+	<?php require 'extensions/footer.html'; ?>
 
 </html>
