@@ -4,7 +4,15 @@
 
  :root {
 
-    --primarycolor : green ;
-    --secondarycolor : red ;
-
+    --text-primary-color: ;
+    --text-secondary-color: ;
+    --text-third-color: ;
+    --background-primary-color: ;
+    --background-secondary-color: ;
+    --title-primary-color: ;
+    --title-secondary-color: ;
+    --outline-color: ;
+    --primary-color : green ;
+    --secondary-color : red ;
+    
 }

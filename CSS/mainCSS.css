@@ -51,18 +51,18 @@ body {
     border-radius: 4px;          
 }
 
-ul {
+.grid {
     display: table;
     width: 980px;
     table-layout: fixed;
 }
 
-ul li {
+.grid li {
     display: table-cell;
     text-align: center;
 }
 
-p {
+.grid-theme p {
     display: block;
     margin-block-start: 1em;
     margin-block-end: 1em;
@@ -70,7 +70,7 @@ p {
     margin-inline-end: 0px;
 }
 
-a {
+.theme a {
     color: #007bff;
     text-decoration: none;
     background-color: transparent;
@@ -83,11 +83,9 @@ a {
     white-space: nowrap;
     vertical-align: middle;
     user-select: none;
-    border: 1px solid transparent;
-    padding: .375rem .75rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    border-radius: .25rem;
+    padding: 4px 4px;
+    font-size: 15px;
+    border-radius: 8px;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
@@ -122,12 +120,6 @@ a {
     justify-content: center;
     padding-top: 100px;
     flex-wrap: wrap;
-}
-
-.grid-theme>.theme {
-    align-content: stretch;
-    align-items: stretch;
-    display: flex;
 }
 
 .theme {
@@ -171,7 +163,7 @@ a {
     width: 100%;
     font-size: 20px;
     text-transform: uppercase;
-    text-color: ;
+    text-color: #92aae4;
     border: 1px solid #1546da;
     background-color: #a54d9e;
     border-radius: 10px 10px 0 0;           

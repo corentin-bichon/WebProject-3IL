@@ -13,9 +13,9 @@
 			
 		</button>
 
-        <ul class="grid-theme">
+        <ul class="grid grid-theme">
             <li class="theme">
-            <a href="../index.html">           	
+            <a href="index.html">           	
             	<div class="card">           		
         	    	<div class="card-header">
     	        		<p>
@@ -30,7 +30,7 @@
     	        </div>
             </li> 
    	        <li class="theme"> 
-   	        <a href="../index.html"> 	        	
+   	        <a href="index.html"> 	        	
    	        	<div class="card">
    	        		
    	        		<div class="card-header">   
