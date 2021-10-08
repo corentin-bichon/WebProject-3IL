@@ -45,74 +45,16 @@ body {
     border-radius: 4px;          
 }
 
-/*.grid>.grid-item {
-    align-content: stretch;
-    align-items: stretch;
-    display: flex;
+ul {
+    display: table;
+    width: 980px;
+    table-layout: fixed;
 }
 
-.grid>.grid-item>* {
-    height: 100%;
-    width: 100%;
+ul li {
+    display: table-cell;
+    text-align: center;
 }
-
-.card {
-    background-color: var(--primarycolor);
-    border: 1px solid var(--primarycolor);
-    border-radius: .125rem;
-    box-shadow: 0 1.6px 3.6px 0 var(--primarycolor),0 .3px .9px 0 var(--primarycolor);
-    color: var(--theme-text);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    max-width: 100%;
-    outline-color: var(--theme-text);
-    padding: 1.5rem 0 0;
-    position: relative;
-}
-
-.card.is-branded {
-    border-color: transparent;
-    border: 1px solid var(--primarycolor);
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
-}
-
-.card.is-branded .theme-header {
-    border-bottom: 1px solid var(--primarycolor);
-    margin-left: -1px;
-    margin-right: -1px;
-    margin-top: -26px;
-}
-
-.card.is-branded>:first-child {
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
-}
-
-.card .theme-header {
-    margin-bottom: 1.125rem;
-    position: relative;
-}
-
-.card .theme-content, .card .theme-footer, .card .theme-header {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-}
-
-.card>:first-child {
-    border-top-left-radius: .125rem;
-    border-top-right-radius: .125rem;
-}
-
-.has-background-azure-card {
-    background-color: #0078d4!important;
-    outline-color: #fff!important;
-}
-
-.card.is-branded .theme-header:first-child {
-    padding-top: 0;
-}*/
 
 p {
     display: block;
@@ -122,15 +64,18 @@ p {
     margin-inline-end: 0px;
 }
 
+a {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+}
+
 .btn {
     display: inline-block;
     font-weight: 400;
     text-align: center;
     white-space: nowrap;
     vertical-align: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none;
     border: 1px solid transparent;
     padding: .375rem .75rem;
@@ -141,33 +86,98 @@ p {
 }
 
 .btn-theme {
-
+    background-color: #E8F0F2;
+    color: #39A2DB;
+    border: 2px solid #053742;
+    border-radius: 10rem;
+    cursor: pointer;
+    font-size: 20px;
+    overflow: hidden;
+    padding: 10px 15 px;
+    position: relative;
+    transition: transform 450ms, background-color 300ms 150ms, color 300ms 150ms;
 }
 
+    .btn-theme:hover {
+        transform: scale(1.13);
+        background-color: #053742;
+        color: #E8F0F2;      
+    }
 
-.forecast {
+.grid-theme {
+    grid-column-gap: 15px;
+    display: flex;
     margin: 0;
-    padding: .3rem;
-    background-color: #eee;
-    font: 1rem 'Fira Sans', sans-serif;
+    padding: 0;
+    row-gap: 25px;
+    z-index: 1;
+    margin-right: auto;
+    margin-left: auto;
+    justify-content: center;
+    padding-top: 100px;
+    flex-wrap: wrap;
 }
 
-.forecast > h1,
-.day-forecast {
-    margin: .5rem;
-    padding: .3rem;
-    font-size: 1.2rem;
+.grid-theme>.theme {
+    align-content: stretch;
+    align-items: stretch;
+    display: flex;
 }
 
-.day-forecast {
-    background: right/contain content-box border-box no-repeat
-        url('/media/examples/rain.svg') white;
+.theme {
+    transition: transform 350ms;
 }
 
-.day-forecast > h2,
-.day-forecast > p {
-    margin: .2rem;
-    font-size: 1rem;
+    .theme:hover {
+        transform: scale(1.05);
+    }
+
+.card {
+    border: 1px solid #94a474;
+    border-radius: 5px;
+    box-shadow: 0 1.6px 3.6px 0 #94a474,0 .3px .9px 0 #94a474;  
+    max-width: 100%;
+    outline-color: #94a474;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    word-wrap: break-word;
+    width: 300px;
+    height: 200px;
+    background-color: #94a4d4;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 10px;
+}
+
+.card .card-content {
+    margin-bottom: 15px;
+}
+
+.card .card-header, .card .card-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.card-header {
+    display: flex;
+    word-wrap: break-word;
+    width: 100%;
+    font-size: 20px;
+    text-transform: uppercase;
+    text-color: ;
+    border: 1px solid #1546da;
+    background-color: #a54d9e;
+    border-radius: 10px 10px 0 0;           
+}
+    .card-header:hover {
+        background-color: #39A2DB;
+    }
+
+@media screen and (max-width: 950px) {
+  .card {    
+    width: 350px;   
+  }
 }
 
 .logoMenu {
@@ -196,8 +206,6 @@ p {
     color: #31326F;
     text-align: center;
 }
-
-
 
 section {
     position: relative;
@@ -235,7 +243,6 @@ section {
     transform-origin: left bottom;
     transform: skewY(6deg);
 }
-
 
 *, :after, :before {
     box-sizing: border-box;
