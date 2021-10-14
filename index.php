@@ -13,7 +13,6 @@
 
 		<br><br><br><br><br>
 
-
 		<h1 class=titre-site> Ruthen Quiz </h1>
 
 		<section class="presentation angle-haut angle-bas"> 
@@ -36,6 +35,6 @@
 		<br><br><br><br><br>
 	</body>
 
-	<?php require 'extensions/footer.html'; ?>
+	<?php require_once 'extensions/footer.html'; ?>
 
 </html>
