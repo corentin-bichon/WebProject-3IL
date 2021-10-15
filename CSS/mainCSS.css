@@ -19,7 +19,7 @@ body {
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,500,300,700);
 
 * {
-  font-family: Open Sans;
+  font-family: cursive;
 }
 
 
@@ -58,7 +58,6 @@ body {
     border-radius: 4px;          
 }
 
-/*
 .grid {
     display: table;
     width: 980px;
@@ -70,12 +69,29 @@ body {
     text-align: center;
 }
 
+.grid-theme {
+    grid-column-gap: 15px;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    row-gap: 25px;
+    z-index: 1;
+    margin-right: auto;
+    margin-left: auto;
+    justify-content: center;
+    padding-top: 100px;
+    flex-wrap: wrap;
+}
+
 .grid-theme p {
     display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
+    font-size: 20px;
+    margin-block-start: 16px;
+    margin-block-end: 16px;
+}
+
+.theme {
+    transition: transform 350ms;
 }
 
 .theme a {
@@ -97,11 +113,12 @@ body {
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
-.btn-theme {
+/* Style pour les futurs boutons */
+/*.btn-theme {
     background-color: #E8F0F2;
     color: #39A2DB;
     border: 2px solid #053742;
-    border-radius: 10rem;
+    border-radius: 160px;
     cursor: pointer;
     font-size: 20px;
     overflow: hidden;
@@ -112,81 +129,73 @@ body {
 
     .btn-theme:hover {
         transform: scale(1.13);
-        background-color: #053742;
-        color: #E8F0F2;      
+        background-color: var(--background-primary-color);
+        color: var(--outline-secondary-color);      
     }
-
-.grid-theme {
-    grid-column-gap: 15px;
-    display: flex;
-    margin: 0;
-    padding: 0;
-    row-gap: 25px;
-    z-index: 1;
-    margin-right: auto;
-    margin-left: auto;
-    justify-content: center;
-    padding-top: 100px;
-    flex-wrap: wrap;
-}
-
-.theme {
-    transition: transform 350ms;
-}
-
-    .theme:hover {
-        transform: scale(1.05);
-    }
+*/
 
 .card {
-    border: 1px solid #94a474;
+    border: 1px solid var(--outline-primary-color);
     border-radius: 5px;
     box-shadow: 0 1.6px 3.6px 0 #94a474,0 .3px .9px 0 #94a474;  
     max-width: 100%;
-    outline-color: #94a474;
+    outline-color: var(--outline-primary-color);
     position: relative;
     display: flex;
     flex-direction: column;
     word-wrap: break-word;
     width: 300px;
     height: 200px;
-    background-color: #94a4d4;
+    background-color: var(--background-primary-color);
     background-clip: border-box;
-    border: 1px solid rgba(0,0,0,.125);
-    border-radius: 10px;
+    overflow: hidden;
 }
 
-.card .card-content {
+.card .card-text {
+    background: var(--background-secondary-color);
+    z-index: 1;
+    position: absolute;
+    text-align: center;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 60%; 
+    font-weight: bold;
+    color: var(--text-secondary-color);
+    width: 70%;
+}
+
+/* A voir si on réutilise ça */
+/*.card .card-content {
     margin-bottom: 15px;
 }
 
 .card .card-header, .card .card-content {
     padding-left: 15px;
     padding-right: 15px;
-}
+}*/
 
-.card-header {
+/* L'image dans la card theme */
+.card-img {
     display: flex;
-    word-wrap: break-word;
     width: 100%;
-    font-size: 20px;
-    text-transform: uppercase;
-    text-color: #92aae4;
-    border: 1px solid #1546da;
-    background-color: #a54d9e;
     border-radius: 10px 10px 0 0;           
 }
-    .card-header:hover {
-        background-color: #39A2DB;
-    }
+
+
+.img-theme {
+    max-width: 100%;
+}
+
+.card-text {
+        
+}
 
 @media screen and (max-width: 950px) {
   .card {    
     width: 350px;   
   }
 }
-
-*/
 
 .logoMenu {
     margin: auto ; 
