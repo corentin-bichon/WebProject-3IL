@@ -36,6 +36,6 @@
 		<br><br><br><br><br>
 	</body>
 
-	<?php require 'extensions/footer.html'; ?>
+	<?php require_once 'extensions/footer.html'; ?>
 
 </html>
