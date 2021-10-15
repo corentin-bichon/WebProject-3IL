@@ -13,7 +13,6 @@
 
 		<br><br><br><br><br>
 
-
 		<h1 class=titre-site> Ruthen Quiz </h1>
 
 		<section class="presentation angle-haut angle-bas"> 
