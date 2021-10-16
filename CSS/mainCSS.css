@@ -1,0 +1,344 @@
+html {
+    height: 100%;
+}
+
+body {
+    color:black;
+    background-color:white;
+    background-image: url('../ressources/logo/fondecran.gif');
+    background-size:100%;
+    background-repeat: repeat-y;
+    background-attachment: fixed;
+    height:100%;
+    width:100%;
+    margin: 0;
+    padding: 0;
+    position : relative;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,500,300,700);
+
+* {
+  font-family: cursive;
+}
+
+
+/* Module barre de navigation */
+
+.navbar {
+	display: flex;      
+    flex-direction: row;        
+    padding:0;  
+    background-color: #DBF6E9 ;   
+    justify-content: flex-end;  
+    opacity: 0.90;  
+    width: 100%;
+    margin : 0 ;
+    margin-top: 30px;
+
+}
+
+.navbar a:hover {
+  background-color: #9DDFD3;
+  color: #31326F;
+  border-color: #31326F;
+}
+
+.navbar a {
+    display:block;               
+    min-width: 120px; 
+
+    margin: 1rem;     
+    padding: 0.4rem 0;  
+    text-align: center;          
+    background-color: #1ABC9C;   
+    color: #fff;                 
+    text-decoration: none;       
+    border: 1px solid #fff;      
+    border-radius: 4px;          
+}
+
+.grid {
+    display: table;
+    width: 980px;
+    table-layout: fixed;
+}
+
+.grid li {
+    display: table-cell;
+    text-align: center;
+}
+
+.grid-theme {
+    grid-column-gap: 15px;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    row-gap: 25px;
+    z-index: 1;
+    margin-right: auto;
+    margin-left: auto;
+    justify-content: center;
+    padding-top: 100px;
+    flex-wrap: wrap;
+}
+
+.grid-theme p {
+    display: block;
+    font-size: 20px;
+    margin-block-start: 16px;
+    margin-block-end: 16px;
+}
+
+.theme {
+    transition: transform 350ms;
+}
+
+.theme a {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    padding: 4px 4px;
+    font-size: 15px;
+    border-radius: 8px;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+/* Style pour les futurs boutons */
+/*.btn-theme {
+    background-color: #E8F0F2;
+    color: #39A2DB;
+    border: 2px solid #053742;
+    border-radius: 160px;
+    cursor: pointer;
+    font-size: 20px;
+    overflow: hidden;
+    padding: 10px 15 px;
+    position: relative;
+    transition: transform 450ms, background-color 300ms 150ms, color 300ms 150ms;
+}
+
+    .btn-theme:hover {
+        transform: scale(1.13);
+        background-color: var(--background-primary-color);
+        color: var(--outline-secondary-color);      
+    }
+*/
+
+.card {
+    border: 1px solid var(--outline-primary-color);
+    border-radius: 5px;
+    box-shadow: 0 1.6px 3.6px 0 #94a474,0 .3px .9px 0 #94a474;  
+    max-width: 100%;
+    outline-color: var(--outline-primary-color);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    word-wrap: break-word;
+    width: 300px;
+    height: 200px;
+    background-color: var(--background-primary-color);
+    background-clip: border-box;
+    overflow: hidden;
+}
+
+.card .card-text {
+    background: var(--background-secondary-color);
+    z-index: 1;
+    position: absolute;
+    text-align: center;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 60%; 
+    font-weight: bold;
+    color: var(--text-secondary-color);
+    width: 70%;
+}
+
+/* A voir si on réutilise ça */
+/*.card .card-content {
+    margin-bottom: 15px;
+}
+
+.card .card-header, .card .card-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}*/
+
+/* L'image dans la card theme */
+.card-img {
+    display: flex;
+    width: 100%;
+    border-radius: 10px 10px 0 0;           
+}
+
+
+.img-theme {
+    max-width: 100%;
+}
+
+.card-text {
+        
+}
+
+@media screen and (max-width: 950px) {
+  .card {    
+    width: 350px;   
+  }
+}
+
+.logoMenu {
+    margin: auto ; 
+}
+
+.logoMenu img {
+    position: absolute;
+    width: 20%;
+    height: 10%;
+    max-width: 170px;
+    max-height: 100px;
+
+    margin-left: 50px;
+
+    z-index: 1;
+    background-color: #FBE5AC ;
+
+}
+
+
+/* Texte présentation accueil */
+
+.titre-site {
+    font-family: Comfortaa,cursive;
+    color: #31326F;
+    text-align: center;
+}
+
+section {
+    position: relative;
+}
+
+.presentation {
+
+    background-color: #DBF6E9;
+    z-index: 1;
+    margin-top: 400px;
+    margin-bottom: 400px;
+}
+
+.angle-haut:before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: inherit;
+    z-index: -1;
+    bottom: 0;
+    transform-origin: left bottom;
+    transform: skewY(-6deg);
+}
+
+.angle-bas:after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: inherit;
+    z-index: -1;
+    bottom: 0;
+    transform-origin: left bottom;
+    transform: skewY(6deg);
+}
+
+*, :after, :before {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+/* Module pied de page  */
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width:100%;
+    height:100px;
+}
+
+.footer-title {
+   width: 100%;
+   display: inline-block;
+   background: #333;
+   color: white;
+  
+   text-align: center;
+   font-size: 22px;
+   font-weight: 700;
+}
+  
+.footer-global {
+    display: flex;      
+    flex-direction: row;        
+    padding:0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 0;
+    background-color: #DBF6E9 ; 
+    text-align: center;
+}  
+
+.footer-column {
+    width: 33%;
+    display: inline-block;
+    vertical-align: top;
+    margin: auto;
+}
+
+.footer-beginning {
+    line-height: 2em;
+}
+
+.footer-middle {
+    text-align: initial;
+    width: 17em;
+    line-height: 2em;
+}
+
+
+.footer-end {
+    padding-left: 15px;
+}
+
+.footer-end h3 {
+
+}
+
+.footer-end p {
+    color: #92999f;
+    font-size: 13px;
+    font-weight: normal;
+    padding-top: 10px;
+}
+
+#footer-logo {
+    width: 100px;
+}
+
+#footer-icon {
+    height: 25px;
+    vertical-align: middle;
+}
+
+
+
