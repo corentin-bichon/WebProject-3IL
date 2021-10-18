@@ -5,15 +5,16 @@
 
  :root {
 
-    --text-primary-color: ;
-    --text-secondary-color: ;
-    --text-third-color: ;
-    --background-primary-color: ;
-    --background-secondary-color: ;
-    --title-primary-color: ;
-    --title-secondary-color: ;
-    --outline-color: ;
-    --primary-color : green ;
-    --secondary-color : red ;
+    --text-primary-color: #254DFF;
+    --text-secondary-color: #FF2929;
+    --text-third-color: #0EEFA7;
+    --background-site: #F9F9F9;
+    --background-primary-color: #FFFFFF;
+    --background-secondary-color: #F5F5F5;
+    --title-primary-color: #254DFF;
+    --title-secondary-color: #FF2929;
+    --outline-primary-color: #254DFF;
+    --outline-secondary-color: #FF2929;
+    --outline-third-color: #0EEFA7;
     
 }

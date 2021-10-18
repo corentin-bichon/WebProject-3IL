@@ -17,14 +17,12 @@
             <li class="theme">
             <a href="index.html">           	
             	<div class="card">           		
-        	    	<div class="card-header">
-    	        		<p>
-    	        			Le Football
-    	        		</p>    		
+        	    	<div class="card-img">
+    	        		<img src="ressources/images/football.jpg" class="img-theme"></img>   		
     	        	</div>
-             		<div class="card-body"> 
+             		<div class="card-text"> 
              			<p>
-    	        		 	Et c'est parti pour le football.
+    	        		 	FOOTBALL
     	        		</p> 		
     	        	</div>
     	        </div>
