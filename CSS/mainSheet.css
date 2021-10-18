@@ -1,5 +1,6 @@
- @import url('mainCSS.css') ;
- @charset 'UTF-8' ;
+@import url('mainCSS.css') ;
+@import url('mediaQueries.css') ;
+@charset 'UTF-8' ;
 
 
  :root {

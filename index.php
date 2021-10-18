@@ -10,31 +10,31 @@
 	<body>
 
 		<?php require_once 'extensions/navbar.html'; ?>
-
-		<br><br><br><br><br>
-
-		<h1 class=titre-site> Ruthen Quiz </h1>
-
-		<section class="presentation angle-haut angle-bas"> 
-			<div>
-			    Ruthen Quiz
-
+	
+		<section>
+	
+			<h1 class=titre-site> Ruthen Quiz </h1>
+	
+			<div class="presentation angle-haut angle-bas"> 
+				<div>
+				    Ruthen Quiz
+	
+				</div>
+	
+						<br><br><br><br><br>
+						<br><br><br><br><br>
+	
+	
+				<div> 
+					Présentation du site de Quiz
+				</div>
+	
 			</div>
-
-					<br><br><br><br><br>
-					<br><br><br><br><br>
-
-
-
-			<div> 
-				Présentation du site de Quiz
-			</div>
-
+	
 		</section>
-
-		<br><br><br><br><br>
+	
+			<?php require_once 'extensions/footer.html'; ?>
+	
 	</body>
-
-	<?php require_once 'extensions/footer.html'; ?>
 
 </html>
