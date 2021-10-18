@@ -9,116 +9,40 @@
 		
 		<?php require_once 'extensions/navbar.html'; ?>
 
-		<button class="btn btn-theme"> Salut
-			
-		</button>
+    <?php 
+      try {
+        $user = 'root';
+        $pass = '';
+
+        // Connexion BDD
+        $db = new PDO('mysql:host=localhost;dbname=bdd_application_ruthenquiz', $user, $pass);
+
+        foreach ($db->query('SELECT * FROM theme') as $row) {
+          echo $row['nom'].'<br/>';
+        }
+      } catch (PDOException $e) {
+        print "Erreur : ".$e->getMessage()."<br/>";
+        die();
+      }
+    ?>
 
         <ul class="grid grid-theme">
-            <li class="theme">
+          <?php foreach ($db->query('SELECT * FROM theme') as $row) { ?>
+            <li class="theme">           
             <a href="index.html">           	
             	<div class="card">           		
-        	    	<div class="card-img">
-    	        		<img src="ressources/images/football.jpg" class="img-theme"></img>   		
-    	        	</div>
+    	        	<?php
+                    echo '<img src="ressources/images/'.$row['nom'].'.jpg" class="img-theme"></img>' 
+                ?>  		
              		<div class="card-text"> 
-             			<p>
-    	        		 	FOOTBALL
-    	        		</p> 		
+             			<div class="text-theme title">
+    	        		 	<?php echo $row['nom'] ?>
+    	        		</div> 		
     	        	</div>
     	        </div>
-            </li> 
-   	        <li class="theme"> 
-   	        <a href="index.html"> 	        	
-   	        	<div class="card">
-   	        		
-   	        		<div class="card-header">   
-   	        			<p>
-        	    			Le Tennis
-    	        		</p> 		
-    	        	</div>
-             		<div class="card-body">  
-             			<p>
-        	    			Et c'est parti pour le tennis.
-        	    		</p>   		
-        	   		</div>
-        	    </div>
-   	        </li> 
-  	        <li class="theme"> 
-  	        <a href="../index.html">	        	
-  	        	<div class="card"> 	        		
-  	        		<div class="card-header">
-        	    		<p>
-    	       	 			Le Rugby
-         	  	  	  </p>    		
-    	       	 	</div>
-             		<div class="card-body"> 
-             			<p>
-        	    			Et c'est parti pour le rugby.
-        	    		</p> 		
-        	    	</div>
-        	    </div>
-  	        </li> 
-  	        <li class="theme"> 
-  	        <a href="../index.html"> 	        	
-  	        	<div class="card">
-  	        		<div class="card-header">
-        	    		<p>
-    	       	 			Le Rugby
-         	  	  	  </p>    		
-    	       	 	</div>
-             		<div class="card-body"> 
-             			<p>
-        	    			Et c'est parti pour le rugby.
-        	    		</p> 		
-        	    	</div>
-        	    </div>
-  	        </li>
-  	        <li class="theme"> 
-  	        <a href="../index.html">       	
-  	        	<div class="card">
-  	        		<div class="card-header">
-        	    		<p>
-    	       	 			Le Rugby
-         	  	  	  </p>    		
-    	       	 	</div>
-             		<div class="card-body"> 
-             			<p>
-        	    			Et c'est parti pour le rugby.
-        	    		</p> 		
-        	    	</div>
-        	    </div>
-  	        </li>
-  	        <li class="theme">	
-  	        <a href="../index.html">        	
-  	        	<div class="card">
-  	        		<div class="card-header">
-        	    		<p>
-    	       	 			Le Rugby
-         	  	  	  </p>    		
-    	       	 	</div>
-             		<div class="card-body"> 
-             			<p>
-        	    			Et c'est parti pour le rugby.
-        	    		</p> 		
-        	    	</div>
-        	    </div>
-  	        </li>
-  	        <li class="theme">
-  	        <a href="../index.html">           	
-            	<div class="card">
-        	    	<div class="card-header">
-    	        		<p>
-    	        			Le Football
-    	        		</p>    		
-    	        	</div>
-             		<div class="card-body"> 
-             			<p>
-    	        		 	Et c'est parti pour le football.
-    	        		</p> 		
-    	        	</div>
-    	        </div>
-            </li> 
-        </ul>
+            </li>
+          <?php } ?>
+        </ul>   	        
 	</body>
 
 	<?php require_once 'extensions/footer.html'; ?>

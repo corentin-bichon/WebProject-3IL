@@ -134,61 +134,78 @@ body {
     }
 */
 
+
+/* Style des "cards" des thèmes au niveau de la page de choix des thèmes */
 .card {
-    border: 1px solid var(--outline-primary-color);
-    border-radius: 5px;
-    box-shadow: 0 1.6px 3.6px 0 #94a474,0 .3px .9px 0 #94a474;  
+    
+    border-radius: 10px; 
     max-width: 100%;
-    outline-color: var(--outline-primary-color);
+    outline-color: var(--background-secondary-color);
+    box-shadow:4px 4px 7px 0 rgba(0,0,0,0.5);
     position: relative;
     display: flex;
     flex-direction: column;
     word-wrap: break-word;
     width: 300px;
     height: 200px;
-    background-color: var(--background-primary-color);
-    background-clip: border-box;
     overflow: hidden;
+    transition: transform 0.2s ease-out, border 0.2s ease-in-out;
+
+}
+
+.card:hover {
+    transform:scale(1.05);
+    border: 3px 3px 3px 3px solid var(--background-secondary-color);
+}
+
+/* Style du texte(nom du thème) qui s'affiche quand on passe la souris sur la "card" */
+.card-text {
+      opacity:1;
+      font-size: 40px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: var(--text-secondary-color);
+      background-color: var(--text-secondary-color);
+      width: 100%;
+      height: 300px;
+      text-align:center;
 }
 
 .card .card-text {
-    background: var(--background-secondary-color);
-    z-index: 1;
-    position: absolute;
-    text-align: center;
-    margin: 0 auto;
-    left: 0;
-    right: 0;
-    top: 60%; 
-    font-weight: bold;
-    color: var(--text-secondary-color);
-    width: 70%;
+      background-color: var(--text-primary-color);
+      position: absolute;
+      color: var(--background-secondary-color);
+      transition: all 300ms ease-out;
+      opacity: 0;
+      width: 100%;
+      padding: 100px 20px;
 }
 
-/* A voir si on réutilise ça */
-/*.card .card-content {
-    margin-bottom: 15px;
+.card:hover .card-text { 
+    opacity: 0.7;    
 }
 
-.card .card-header, .card .card-content {
-    padding-left: 15px;
-    padding-right: 15px;
-}*/
+.card .title {
+      font-size: 30px;
+      font-weight: bold;
+      text-transform: uppercase;
+      opacity: 0;
+      transition-delay: 0.2s;
+      transition-duration: 0.3s;
+}
+
+.card:hover .title, .card:focus .title {
+      opacity: 1;
+      transform: translateY(0px);     
+}
 
 /* L'image dans la card theme */
-.card-img {
-    display: flex;
-    width: 100%;
-    border-radius: 10px 10px 0 0;           
-}
-
-
 .img-theme {
     max-width: 100%;
-}
-
-.card-text {
-        
+    display: flex;
+    width: 100%;
+    border-radius: 10px 10px 0 0; 
 }
 
 @media screen and (max-width: 950px) {
