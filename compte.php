@@ -16,8 +16,8 @@
 			<div class="cadre">
 
 				<div class="logo-arrondi">
-					<img src="ressources/logo/logo_small.png" alt="Logo_RuthenQuiz" 	title="Logo_RuthenQuiz" id="logo"/>
-				</div>
+
+   				</div>
 
 				<div class="connexion-titre">
 					<span> Connexion </span>
@@ -26,11 +26,13 @@
 				<form> 
 
 					<div class="connexion-identifiant">
-						<input class="input100" type="text" name="username	" placeholder="Identifiant">
+						<img src="ressources/icon/utilisateur.png" id="connexion-icon" />
+						<input type="text" name="username	" placeholder="Identifiant" required>
 					</div>
 	
 					<div class="connexion-identifiant">
-						<input class="input100" type="password" name="pass	" placeholder="Mot de passe">
+					    <img src="ressources/icon/cadena.png" id="connexion-icon" />
+						<input type="password" name="pass	" placeholder="Mot de passe" required>
 					</div>
 
 					<div class="connexion-retenir">
@@ -42,14 +44,12 @@
 
 
 					<div class=connexion-valider>
-						<button class="login100-form-btn">
-							Login
-						</button>
+						<input type="submit" id='valider' value='Valider' >
 					</div>
 
 					<div class="connexion-oublier">
-						<a class="txt1" href="#">
-							Forgot Password?
+						<a href="#">
+							Mot de passe oublié ?
 						</a>
 					</div>
 	
