@@ -4,12 +4,12 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="CSS\mainSheet.css" type="text/css"/>
 		<link rel="shortcut icon" type="image/x-icon" href="ressources/logo/favicon.ico">
-		<title>Compte - Ruthen Quiz</title>
+		<title>Création de compte - Ruthen Quiz</title>
 	</head>
 
 	<body>
 
-		<?php require_once 'extensions/navbar.html'; ?>
+		<?php require_once 'extensions/navbar.php'; ?>
 
 		<section>
 	
@@ -20,10 +20,11 @@
    				</div>
 
 				<div class="connexion-titre">
-					<span> "S'inscrire" </span>
+					<span> S’inscrire </span>
 				</div>
 
-				<form>
+				<form action="extensions/inscription.php" method="POST">
+
                     <div class="connexion-identifiant">
                     	<img src="ressources/icon/utilisateur.png" id="connexion-icon" />
                     	<input type="text" name="prenom" placeholder="Prenom" required>
@@ -43,12 +44,12 @@
 	
 					<div class="connexion-identifiant">
 					    <img src="ressources/icon/cadena.png" id="connexion-icon" />
-						<input type="password" name="pass" placeholder="Mot de passe" required>
+						<input type="password" name="password" placeholder="Mot de passe" required>
 					</div>
 
 					<div class="connexion-identifiant">
                     	<img src="ressources/icon/cadena.png" id="connexion-icon" />
-                    	<input type="password2" name="pass" placeholder="Confirmer le mot de passe" required>
+                    	<input type="password" name="password2" placeholder="Confirmer le mot de passe" required>
                     </div>
 
                     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
@@ -58,6 +59,13 @@
 
 					<div class=connexion-valider>
 						<input type="submit" id='valider' value='Valider' >
+						<?php
+                           if(isset($_GET['erreur'])){
+                               $err = $_GET['erreur'];
+                               if($err==1 || $err==2)
+                                   echo "<p style='color:red'> Impossible de créer un nouvel utilisateur </p>";
+                           }
+                        ?>
 					</div>
 
 					<div class="connexion-oublier">
@@ -68,11 +76,8 @@
 	
 				</form>
 			</div>
-
-
 	
 		</section>
-	
 
 		<?php require_once 'extensions/footer.html'; ?>
 

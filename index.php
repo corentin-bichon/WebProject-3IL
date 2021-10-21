@@ -8,7 +8,7 @@
 	</head>
 
 	<body>
-		<?php require_once 'extensions/navbar.html'; ?>
+		<?php require_once 'extensions/navbar.php'; ?>
 	
 		<?php 
       		try {
