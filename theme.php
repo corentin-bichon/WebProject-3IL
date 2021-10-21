@@ -17,9 +17,6 @@
         // Connexion BDD
         $db = new PDO('mysql:host=localhost;dbname=bdd_application_ruthenquiz', $user, $pass);
 
-        foreach ($db->query('SELECT * FROM theme') as $row) {
-          echo $row['nom'].'<br/>';
-        }
       } catch (PDOException $e) {
         print "Erreur : ".$e->getMessage()."<br/>";
         die();
@@ -27,16 +24,16 @@
     ?>
 
         <ul class="grid grid-theme">
-          <?php foreach ($db->query('SELECT * FROM theme') as $row) { ?>
+          <?php foreach ($db->query('SELECT * FROM theme') as $nomtheme) { ?>
             <li class="theme">           
             <a href="index.html">           	
             	<div class="card">           		
     	        	<?php
-                    echo '<img src="ressources/images/'.$row['nom'].'.jpg" class="img-theme"></img>' 
+                    echo '<img src="ressources/images/'.$nomtheme['nom'].'.jpg" class="img-theme"></img>' 
                 ?>  		
              		<div class="card-text"> 
              			<div class="text-theme title">
-    	        		 	<?php echo $row['nom'] ?>
+    	        		 	<?php echo $nomtheme['nom'] ?>
     	        		</div> 		
     	        	</div>
     	        </div>

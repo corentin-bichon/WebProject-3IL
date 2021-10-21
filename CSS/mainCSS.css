@@ -128,31 +128,95 @@ header {
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
-/* Style pour les futurs boutons */
-/*.btn-theme {
-    background-color: #E8F0F2;
-    color: #39A2DB;
-    border: 2px solid #053742;
-    border-radius: 160px;
-    cursor: pointer;
-    font-size: 20px;
-    overflow: hidden;
-    padding: 10px 15 px;
-    position: relative;
-    transition: transform 450ms, background-color 300ms 150ms, color 300ms 150ms;
+.mesThemes {
+    display: none;
 }
 
-    .btn-theme:hover {
-        transform: scale(1.13);
-        background-color: var(--background-primary-color);
-        color: var(--outline-secondary-color);      
-    }
-*/
+/* Conteneur du viewer qui affiche les themes grâce aux images */
+.viewer-container {
+  max-width: 500px;
+  position: relative;
+  margin: auto;
+}
 
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 14px;
+  margin-top: -22px;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 25px;
+  user-select: none;
+  transition: 0.7s ease;  
+}
+
+.prev {
+    transform: translate(-50%);
+}
+
+.next {
+    transform: translate(50%);
+    right: 0;
+}
+
+/* Animation quand on passe la souris sur les flèches pour changer de theme */
+.prev:hover, .next:hover {
+  background-color: rgba(37, 77, 255, 0.9);
+  color: var(--background-primary-color);
+}
+
+.img-viewer {
+    border-radius: 20px;
+    vertical-align: middle;
+}
+
+/* les points qui indiquent l'affichage du viewer */
+.point {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: var(--text-primary-color);
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.7s ease;
+}
+
+.active, .point:hover {
+  background-color: var(--background-primary-color);
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 2s;
+  animation-name: fade;
+  animation-duration: 2s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next {font-size: 11px}
+}
 
 /* Style des "cards" des thèmes au niveau de la page de choix des thèmes */
-.card {
-    
+.card {  
     border-radius: 10px; 
     max-width: 100%;
     outline-color: var(--background-secondary-color);
@@ -226,6 +290,10 @@ header {
 @media screen and (max-width: 950px) {
   .card {    
     width: 350px;   
+  }
+
+  .viewer-container {
+    max-width: 350px; 
   }
 }
 
