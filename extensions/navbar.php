@@ -1,4 +1,5 @@
 <header>
+
 	<div class=logoMenu>
 		<img src="ressources/logo/logo_small.png" alt="Logo_RuthenQuiz" 	title="Logo_RuthenQuiz" id="logo"/>
 	</div>
@@ -14,10 +15,11 @@
              if(isset($_SESSION['username']) && $_SESSION['username'] !== "") {
                  $user = $_SESSION['username'];
                  echo '<div> '.$user.' </div>' ;
+                 echo '<a href="extensions/deconnexion.php"> Deconnexion </a>';
              } else {
                  echo '<a href="compte.php"> Connexion </a>';
              }
            ?>
-
 	</div>
+
 </header>

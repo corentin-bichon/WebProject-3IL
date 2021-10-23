@@ -54,9 +54,10 @@
                         ?>
 					</div>
 
-					<div class="connexion-oublier">
-						<a href="#">
-							Mot de passe oublié ?
+					<div class="connexion-creer">
+					    <span> Toujours pas de compte ? </span>
+						<a href="nouveaucompte.php">
+							Créer un compte
 						</a>
 					</div>
 

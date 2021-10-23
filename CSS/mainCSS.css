@@ -561,16 +561,16 @@ body::before {
 }
 
 
-.connexion-oublier {
+.connexion-creer {
     margin: 50px auto auto auto ;
     text-align: center;
     text-decoration: none;
-    width: 130px;
+    width: 200px;
     min-width: 133px;
 
 }
 
-.connexion-oublier a {
+.connexion-creer a {
     font-size: 13px;
     color: #e5e5e5;
     text-decoration: none ;
@@ -582,6 +582,7 @@ body::before {
 }
 
 .g-recaptcha {
+    width: 290px;
     margin : auto;
 }
 

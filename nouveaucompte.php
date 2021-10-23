@@ -54,7 +54,8 @@
 
                     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
-                     <div class="g-recaptcha" data-sitekey="6LeK6eIcAAAAAB8Em-1S__R0Zlf52MQtpfMwRUdc"></div>
+
+                    <div class="g-recaptcha" data-sitekey="6LeK6eIcAAAAAB8Em-1S__R0Zlf52MQtpfMwRUdc"></div>
 
 
 					<div class=connexion-valider>
@@ -68,7 +69,7 @@
                         ?>
 					</div>
 
-					<div class="connexion-oublier">
+					<div class="connexion-creer">
 						<a href="compte.php">
 							Dejà un compte ?
 						</a>
