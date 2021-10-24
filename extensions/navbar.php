@@ -12,9 +12,11 @@
 
    		<?php
              session_start();
+             if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
+                  echo '<a href="administrateur.php"> Administrateur </a>';
+             }
+
              if(isset($_SESSION['username']) && $_SESSION['username'] !== "") {
-                 $user = $_SESSION['username'];
-                 echo '<div> '.$user.' </div>' ;
                  echo '<a href="extensions/deconnexion.php"> Deconnexion </a>';
              } else {
                  echo '<a href="compte.php"> Connexion </a>';

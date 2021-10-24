@@ -329,10 +329,11 @@ section {
 
 /* Texte présentation accueil */
 
-.titre-site {
+.message-bienvenue {
     font-family: Comfortaa,cursive;
     color: #31326F;
     text-align: center;
+    margin: 50px;
 }
 
 .presentation {
@@ -560,7 +561,6 @@ body::before {
     cursor: pointer;
 }
 
-
 .connexion-creer {
     margin: 50px auto auto auto ;
     text-align: center;
@@ -584,6 +584,51 @@ body::before {
 .g-recaptcha {
     width: 290px;
     margin : auto;
+}
+
+
+/* Page administration */
+
+.tableau-utilisateur {
+    border-radius: 10px;
+    width: 90%;
+
+    margin-bottom: 200px;
+}
+
+.titre-tableau {
+    border-bottom: 2px solid #e0e0e0;
+    border-collapse: collapse;
+    background-color: #FFEEDB;
+    font-weight: bold;
+    padding: 12px;
+}
+
+.ligne-tableau div {
+    flex-grow: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding-right: 20px;
+    width: 250px;
+}
+
+.ligne-tableau:hover {
+    background-color: #f1f1f1;
+}
+
+.ligne-tableau {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 0;
+    flex-wrap: wrap;
+    width: 100%;
+
+    padding: 12px;
+
+
+    border-bottom: 2px solid #e0e0e0;
+    border-collapse: collapse;
 }
 
 

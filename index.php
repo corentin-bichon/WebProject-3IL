@@ -9,8 +9,23 @@
 
 	<body>
 		<?php require_once 'extensions/navbar.php'; ?>
-	
-		<?php 
+
+
+		<!-- Message de bienvenue -->
+
+		<?php
+		            if(isset($_SESSION['username']) && $_SESSION['username'] !== "") {
+                         $user = $_SESSION['username'];
+                         echo "<div class='message-bienvenue'> Bonjour $user et bienvenue sur Ruthen Quiz </div>" ;
+                     } else {
+                         echo "<div class='message-bienvenue'> Bonjour et bienvenue sur Ruthen Quiz </div>" ;
+                     }
+        ?>
+
+
+
+	   <!-- Thèmes -->
+	    <?php
       		try {
         		$user = 'root';
         		$pass = '';

@@ -16,6 +16,12 @@ if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['preno
         $firstname = htmlspecialchars($_POST['prenom']);
         $name = htmlspecialchars($_POST['nom']);
 
+         //Hachage du mot de passe
+         $pepper = "c1isvFdxMDdmjOlvxpecFw";
+         $password_hachage = hash_hmac("sha256", $password, $pepper);
+         $password_haché = password_hash($password_hachage, PASSWORD_ARGON2ID);
+
+
 
          if($username !== "" && $password !== "" && $firstname !== "" && $name !== "") {
 
@@ -30,7 +36,7 @@ if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['preno
                  header('Location: ../compte.php?erreur=1');
               } else {
                  $requete2 = "INSERT INTO `utilisateur` (`login`, `motdepasse`, `admin`, `nom`, `prenom`)
-                             VALUES ('".$username."','".$password."','0','".$name."','".$firstname."')" ;
+                             VALUES ('".$username."','".$password_haché."','0','".$name."','".$firstname."')" ;
                  echo $requete2 ;
                   $rep = $db->query($requete2);
 
