@@ -10,6 +10,17 @@
 	<body>
 		<?php require_once 'extensions/navbar.php'; ?>
 
+	    <script type = "text/javascript">
+             function supprimer(pseudo, prenom, nom) {
+
+                  var xmlhttp;
+                  xmlhttp = new XMLHttpRequest();
+                  xmlhttp.open("GET","extensions/suppression.php?login=" + pseudo + "&prenom=" + prenom + "&nom=" + nom, true);
+                  xmlhttp.send();
+
+                  location.reload();
+             }
+        </script>
 
          <h2> Gestion des comptes </h2> </br> </br>
 
@@ -52,7 +63,7 @@
                    echo         '<div> '.$utilisateur["prenom"].' </div>' ;
                    echo         '<div> '.$utilisateur["nom"].' </div>' ;
                    if ( $utilisateur["admin"] != 1) {  echo '<div> NON </div>' ; } else {  echo '<div> OUI </div>' ;}
-                   echo         '<div> '.$utilisateur["date"].' </div>' ;
+                   echo         '<div> '.$utilisateur["date"].' <img src="ressources/icon/trash.png" onclick="supprimer(\''.$utilisateur['login'].'\',\''.$utilisateur['prenom'].'\',\''.$utilisateur['nom'].'\')" id="trash-icon" />  </div>' ;
                    echo '</div>' ;
 
               }

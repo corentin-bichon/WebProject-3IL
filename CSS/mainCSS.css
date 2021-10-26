@@ -609,7 +609,6 @@ body::before {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    padding-right: 20px;
     width: 250px;
 }
 
@@ -626,11 +625,14 @@ body::before {
 
     padding: 12px;
 
-
     border-bottom: 2px solid #e0e0e0;
     border-collapse: collapse;
 }
 
+#trash-icon {
+    height: 25px;
+    float: right;
+}
 
 
 
