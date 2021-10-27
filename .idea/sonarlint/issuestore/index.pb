@@ -20,3 +20,17 @@ A
 nouveaucompte.php,6\7\6778affc76f53fccaebd6987b12554d892f4eaa3
 \
 ,.idea/inspectionProfiles/Project_Default.xml,4\9\496a238a6afa168dbaf6efd37bb459331589579c
+J
+extensions/inscription.php,3\f\3fa0db55d41142027893bf535c4a94f29ca20a68
+D
+extensions/alerte.js,4\5\45944a790f00d421eb997ae073f3fcd26ad04cb9
+E
+extensions/navbar.php,d\a\da69fc077d7762f637d6f0c00a5030719a6390e7
+H
+extensions/connexion.php,5\9\59977ddb6d265d06cf9300e1e995297bcfeae6ef
+J
+extensions/deconnexion.php,b\2\b2dde2d45d33611ae863c1659656bfc522dc5666
+J
+extensions/suppression.php,5\2\52c2d12bd70a9f2ad4af413a3c49dd8e093f0f5e
+B
+administrateur.php,d\0\d03f73cdb48e617fac39f23239b13d0ee3ad9f07

@@ -681,6 +681,7 @@ body::before {
     position: fixed;
 }
 
+/* Un ID par popup */
 #popup-connexion {
     display: none;
 }
@@ -693,11 +694,20 @@ body::before {
     display: none;
 }
 
+#popup-suppression-erreur {
+    display: none;
+}
+
+#popup-suppression-succes {
+    display: none;
+}
+
 #popup-icon {
     height: 25px;
     margin: 4px -115px;
     position: absolute;
 }
+
 
 #popup-icon-erreur {
     height: 40px;

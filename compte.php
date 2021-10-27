@@ -86,6 +86,7 @@
                 } else {
                     document.getElementById("popup-connexion-erreur").style.display = "none";
                     affichage = 0 ;
+                    document.location.href="compte.php";
                 }
             }
         </script>

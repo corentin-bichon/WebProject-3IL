@@ -12,7 +12,12 @@
              $prenom = (isset($_GET['prenom'])) ? $_GET['prenom'] : '%' ;
              $nom = (isset($_GET['nom'])) ? $_GET['nom'] : '%' ;
 
-             try {
+             if ( $pseudo == NULL || $pseudo == $_SESSION['username'] ) {
+                 header('Location: ../administrateur.php?suppression=0');
+
+             } else {
+
+               try {
                   $user = 'root';
                   $pass = '';
 
@@ -24,12 +29,13 @@
 
                   header('Location: ../administrateur.php?suppression=1');
 
-             } catch (PDOException $e) {
+               } catch (PDOException $e) {
                   print "Erreur : ".$e->getMessage()."<br/>";
                   header('Location: ../administrateur.php?suppression=0');
                   die();
-             }
+               }
 
-             header('Location: ../administrateur.php?suppression=0');
+               header('Location: ../administrateur.php?suppression=0');
+            }
          }
 ?>

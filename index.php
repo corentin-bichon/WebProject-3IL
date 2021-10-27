@@ -169,6 +169,7 @@
                          } else {
                              document.getElementById("popup-connexion").style.display = "none";
                              affichageConnexion = 0 ;
+                             document.location.href="index.php";
                          }
                      }
 
@@ -180,6 +181,7 @@
                          } else {
                              document.getElementById("popup-deconnexion").style.display = "none";
                              affichageDeconnexion = 0 ;
+                             document.location.href="index.php";
                          }
                      }
         </script>
