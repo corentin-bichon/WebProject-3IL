@@ -1,4 +1,3 @@
-<html> 
 <html lang="fr">
 	<head> 
 		<meta charset="utf-8">
@@ -28,19 +27,21 @@
 
 			<div class="viewer-container">
 				<?php 
-					$limitetheme = 3;
+					$limitetheme = 5;
 					foreach ($db->query('SELECT * FROM theme LIMIT '.$limitetheme.'') as $nomtheme) { 
 				?>
-				<a href="index.html">
+				<a href="quiz.php">
 				<div class="mesThemes fade">
-					<?php						
-  					    echo '<img src="ressources/images/'.$nomtheme['nom'].'.jpg" class="img-viewer" style="width:100%">'
+					<?php		
+  					    echo '<img src="ressources/images/'.$nomtheme['nom'].'.jpg" class="img-viewer" style="width:100%">';
+  					    echo '<div class="text-background">';
+  					    	echo '<div class="text">'.$nomtheme['nom'].'</div>';
+  					    echo '</div>'
   					?>
 				</div>
-
-				<a class="prev" onclick="plusIndex(-1)">&#10094;</a>
-				<a class="next" onclick="plusIndex(1)">&#10095;</a>
 				<?php } ?>
+				<a class="prev" onclick="plusIndex(-1)">&#10094;</a>
+				<a class="next" onclick="plusIndex(1)">&#10095;</a>	
 			</div>
 			<br>
 
@@ -78,6 +79,7 @@
 		<script>
 			var indexViewer = 1;
 			showTheme(indexViewer);
+			autoChange();
 
 			function plusIndex(n) {
   				showTheme(indexViewer += n);
