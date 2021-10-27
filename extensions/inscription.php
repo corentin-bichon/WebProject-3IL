@@ -21,8 +21,6 @@ if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['preno
          $password_hachage = hash_hmac("sha256", $password, $pepper);
          $password_haché = password_hash($password_hachage, PASSWORD_ARGON2ID);
 
-
-
          if($username !== "" && $password !== "" && $firstname !== "" && $name !== "") {
 
              $requete = "SELECT * FROM utilisateur where

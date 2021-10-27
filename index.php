@@ -85,11 +85,38 @@
 				</div>
 	
 			</div>
+
+			<!-- Popup Connexion/Deconnexion Réussie -->
+			<?php
+               if(isset($_GET['connexion'])){
+                      $connexion = $_GET['connexion'];
+                      if($connexion==1) {
+                            echo '<script type="text/javascript">  document.addEventListener("DOMContentLoaded", function() { popupSuccesConnexion(); }, false); </script>';
+                      }
+               }
+                if(isset($_GET['deconnexion'])){
+                        $deconnexion = $_GET['deconnexion'];
+                        if($deconnexion==1) {
+                             echo '<script type="text/javascript">  document.addEventListener("DOMContentLoaded", function() { popupSuccesDeconnexion(); }, false); </script>';
+                       }
+                }
+            ?>
+
+			<div class="popup-succes" id="popup-connexion" onclick="popupSuccesConnexion()">
+                 <img src="ressources/icon/valider.png" id="popup-icon" />
+                 <span id="popup-texte"> Connexion réussie ! </span>
+            </div>
+
+            <div class="popup-succes" id="popup-deconnexion" onclick="popupSuccesDeconnexion()">
+                  <img src="ressources/icon/valider.png" id="popup-icon" />
+                  <span id="popup-texte"> Deconnexion réussie ! </span>
+            </div>
 	
 		</section>
 	
 			<?php require_once 'extensions/footer.html'; ?>
-	
+
+		<!-- Affichage Thèmes Viewer -->
 		<script>
 			var indexViewer = 1;
 			showTheme(indexViewer);
@@ -126,6 +153,36 @@
   				points[indexViewer-1].className += " active";
 			}
 		</script>
+
+
+		<!-- Popup Connexion/Deconnexion Réussie  -->
+
+		<script type="text/javascript">
+                     var affichageDeconnexion = 0 ;
+                     var affichageConnexion = 0 ;
+
+                     function popupSuccesConnexion() {
+                         if (affichageConnexion == 0 ) {
+                             document.getElementById("popup-connexion").style.display = "block";
+                             affichageConnexion = 1 ;
+                             setTimeout(popupSuccesConnexion, 10000);
+                         } else {
+                             document.getElementById("popup-connexion").style.display = "none";
+                             affichageConnexion = 0 ;
+                         }
+                     }
+
+                     function popupSuccesDeconnexion() {
+                         if (affichageDeconnexion == 0 ) {
+                             document.getElementById("popup-deconnexion").style.display = "block";
+                             affichageDeconnexion = 1 ;
+                             setTimeout(popupSuccesDeconnexion, 10000);
+                         } else {
+                             document.getElementById("popup-deconnexion").style.display = "none";
+                             affichageDeconnexion = 0 ;
+                         }
+                     }
+        </script>
 
 	</body>
 

@@ -22,11 +22,14 @@
                   $requete = "DELETE FROM `utilisateur` WHERE `login` LIKE '".$pseudo."' AND `prenom` LIKE '".$prenom."' AND `nom` LIKE '".$nom."' ";
                   $rep = $db->query($requete);
 
-                  header('Location: ../administrateur.php');
+                  header('Location: ../administrateur.php?suppression=1');
 
              } catch (PDOException $e) {
                   print "Erreur : ".$e->getMessage()."<br/>";
+                  header('Location: ../administrateur.php?suppression=0');
                   die();
              }
+
+             header('Location: ../administrateur.php?suppression=0');
          }
 ?>

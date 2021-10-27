@@ -34,7 +34,7 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
                 $requete2 = "UPDATE `utilisateur` SET `date`=NOW() WHERE login = '".$username."' ";
                 $db->query($requete2);
 
-                header('Location: ../index.php');
+                header('Location: ../index.php?connexion=1');
              } else {
                 echo
                 header('Location: ../compte.php?erreur=1');

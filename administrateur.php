@@ -72,6 +72,21 @@
 
          </div>
 
+						<?php
+                           if(isset($_GET['erreur'])){
+                               $err = $_GET['erreur'];
+                               if($err==1 || $err==2) {
+                                   echo '<script type="text/javascript">  document.addEventListener("DOMContentLoaded", function() { popupErreur(); }, false); </script>';
+                                   echo '<div class=connexion-impossible> Identifiant ou Mot de passe incorrect </div>';
+                               }
+                           }
+                        ?>
+
+         <div class="popup-erreur" id="popup-connexion-erreur" onclick="popupErreur()">
+                   <img src="ressources/icon/erreur.png" id="popup-icon-erreur" />
+                   <span id="popup-texte-erreur"> Echec de la connexion </span>
+         </div>
+
 
 	    <?php require_once 'extensions/footer.html'; ?>
 
