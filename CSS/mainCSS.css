@@ -117,10 +117,11 @@ section {
 
 /* Texte présentation accueil */
 
-.titre-site {
+.message-bienvenue {
     font-family: Comfortaa,cursive;
     color: #31326F;
     text-align: center;
+    margin: 50px;
 }
 
 .presentation {
@@ -314,7 +315,6 @@ body::before {
     outline: none;
 }
 
-
 .connexion-retenir {
     margin-top: 10px;
     margin-left: 20px;
@@ -347,17 +347,16 @@ body::before {
     cursor: pointer;
 }
 
-
-.connexion-oublier {
+.connexion-creer {
     margin: 50px auto auto auto ;
     text-align: center;
     text-decoration: none;
-    width: 130px;
+    width: 200px;
     min-width: 133px;
 
 }
 
-.connexion-oublier a {
+.connexion-creer a {
     font-size: 13px;
     color: #e5e5e5;
     text-decoration: none ;
@@ -369,6 +368,7 @@ body::before {
 }
 
 .g-recaptcha {
+    width: 290px;
     margin : auto;
 }
 
@@ -419,6 +419,54 @@ body::before {
     color: var(--text-primary-color);
 }
 
+/* Page administration */
+
+.tableau-utilisateur {
+    border-radius: 10px;
+    width: 90%;
+
+    margin-bottom: 200px;
+}
+
+.titre-tableau {
+    border-bottom: 2px solid #e0e0e0;
+    border-collapse: collapse;
+    background-color: #FFEEDB;
+    font-weight: bold;
+    padding: 12px;
+}
+
+.ligne-tableau div {
+    flex-grow: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 250px;
+}
+
+.ligne-tableau:hover {
+    background-color: #f1f1f1;
+}
+
+.ligne-tableau {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 0;
+    flex-wrap: wrap;
+    width: 100%;
+
+    padding: 12px;
+
+    border-bottom: 2px solid #e0e0e0;
+    border-collapse: collapse;
+}
+
+#trash-icon {
+    height: 25px;
+    float: right;
+}
+
+/* Image du viewer */
 .img-viewer {
     max-width: 100%;
     border-radius: 20px;
