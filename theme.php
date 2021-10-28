@@ -7,7 +7,7 @@
 	</head>
 	<body>
 		
-		<?php require_once 'extensions/navbar.html'; ?>
+		<?php require_once 'extensions/navbar.php'; ?>
 
     <?php 
       try {
@@ -42,6 +42,6 @@
         </ul>   	        
 	</body>
 
-	<?php require_once 'extensions/footer.html'; ?>
+	<?php require_once 'extensions/footer.php'; ?>
 
 </html>

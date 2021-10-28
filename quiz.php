@@ -7,7 +7,7 @@
 	</head>
 
 	<body>
-		<?php require_once 'extensions/navbar.html'; ?>
+		<?php require_once 'extensions/navbar.php'; ?>
 
 		<div class="quiz-header">
 			<h1 class="quiz-title">Napoléon</h1>
@@ -31,20 +31,20 @@
 					    <p>Qui a été tué par Brutus en 44 av. J.-C par un coup de couteau ?</p>
 					</div>
 					<div class="quiz-propositions">	
-						<a class="btn-quiz btn-proposition proposition-gauche" href="">
+						<a class="btn-quiz btn-proposition proposition-gauche" onclick="cacherSupplement();">
 							<span class="text-proposition">Jules César</span>
 						</a>
 						<a class="btn-quiz btn-suivant btn-invisible">
 					        <span>Continuer</span>
 					    </a>	
-						<a class="btn-quiz btn-proposition proposition-droite" href="">
+						<a class="btn-quiz btn-proposition proposition-droite" onclick="afficherSupplement();">
 							<span class="text-proposition">Auguste</span>
 						</a>	
 						
 					</div>			
 				</div>
 			</div>
-			<div class="quiz-supplement-reponse">
+			<div class="quiz-supplement-reponse" id="supplement_reponse">
 				<div class="quiz-reponse">
 					Bonne réponse : Jules César
 				</div>
@@ -57,4 +57,46 @@
 		</div>
 		<?php require_once 'extensions/footer.html'; ?>
 	</body>
+
+	<script> 
+		function afficherSupplement() {
+			document.getElementById("supplement_reponse").style.display = "block";
+		}
+
+		function cacherSupplement() {
+			document.getElementById("supplement_reponse").style.display = "none";
+		}
+
+		function afficherResultatQuiz() {
+			document.getElementById("fin-quiz").style.display = "block";
+		}
+	</script>
+
+	<?php 
+		function open_db() {
+			try {
+        		$user = 'root';
+        		$pass = '';
+
+        		// Connexion BDD
+        		$db = new PDO('mysql:host=localhost;dbname=bdd_application_ruthenquiz', $user, $pass);
+
+      		} catch (PDOException $e) {
+        		print "Erreur : ".$e->getMessage()."<br/>";
+        		die();
+      		}
+
+      		return $db;
+		}
+
+		function reponse_question($reponse_donnee) {
+			$db = open_db();
+
+			
+		}
+
+		function est_fini() {
+			
+		}
+	 ?>
 </html>
