@@ -7,7 +7,7 @@
 	</head>
 	<body>
 		
-		<?php require_once 'extensions/navbar.html'; ?>
+		<?php require_once 'extensions/navbar.php'; ?>
 
     <?php 
       try {
@@ -23,24 +23,36 @@
       }
     ?>
 
-        <ul class="grid grid-theme">
-          <?php foreach ($db->query('SELECT * FROM theme') as $nomtheme) { ?>
-            <li class="theme">           
-            <a href="index.html">           	
-            	<div class="card">           		
-    	        	<?php
-                    echo '<img src="ressources/images/'.$nomtheme['nom'].'.jpg" class="img-theme"></img>' 
-                ?>  		
-             		<div class="card-text"> 
-             			<div class="text-theme title">
-    	        		 	<?php echo $nomtheme['nom'] ?>
-    	        		</div> 		
-    	        	</div>
-    	        </div>
-            </li>
-          <?php } ?>
-        </ul>   	        
+      <!-- Affichage des thèmes  -->
+
+       <ul class="grid grid-theme">
+          <?php foreach ($db->query('SELECT * FROM theme') as $nomtheme) {
+            echo '<li class="theme">';
+
+            echo     '<div class="card" onclick="commencerQuiz(\''.$nomtheme['nom'].'\')" >' ;
+            echo     '<img src="ressources/images/'.$nomtheme['nom'].'.jpg" class="img-theme"></img>' ;
+
+            echo	    '<div class="card-text">';
+            echo		    '<div class="text-theme title">';
+    	    echo                   $nomtheme['nom'];
+    	    echo		    '</div>';
+    	    echo    	'</div>';
+    	    echo    '</div>';
+            echo '</li>';
+           }
+          ?>
+       </ul>
+
 	</body>
+
+	<!-- Redirection vers le quiz  -->
+    <script type="text/javascript">
+         function commencerQuiz(nomtheme) {
+             document.location.href="quiz.php?theme=" + nomtheme + "";
+         }
+
+    </script
+
 
 	<?php require_once 'extensions/footer.html'; ?>
 

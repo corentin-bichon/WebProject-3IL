@@ -34,3 +34,5 @@ J
 extensions/suppression.php,5\2\52c2d12bd70a9f2ad4af413a3c49dd8e093f0f5e
 B
 administrateur.php,d\0\d03f73cdb48e617fac39f23239b13d0ee3ad9f07
+8
+quiz.php,6\6\664604a5513f39d56249d23602357a7ae00d9e07

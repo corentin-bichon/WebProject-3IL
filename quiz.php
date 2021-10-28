@@ -7,11 +7,19 @@
 	</head>
 
 	<body>
-		<?php require_once 'extensions/navbar.html'; ?>
+		<?php require_once 'extensions/navbar.php'; ?>
+
+		<?php
+		    if(isset($_GET['theme']) && $theme = $_GET['theme']) {
+                 //Le quiz commence
+            } else {
+                header('Location: theme.php');
+            }
+        ?>
 
 		<div class="quiz-header">
-			<h1 class="quiz-title">Napoléon</h1>
-			<div class="text-right">
+		    <h1 class="quiz-title"> <?php echo $theme; ?> </h1>
+		    <div class="text-right">
 				<span class="questions-affectuees">7</span>
 				<span class="total-question">/10</span>
 			</div>
