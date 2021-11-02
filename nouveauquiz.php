@@ -21,7 +21,7 @@
 					<span> Créer un nouveau Quiz </span>
 				</div>
 
-				<form action="extensions/creationquiz.php" class="formulaire-nouveauquiz" method="POST">
+				<form action="extensions/creationquiz.php" class="formulaire-nouveauquiz" method="POST" enctype="multipart/form-data">
 
                     <div class="information-nouveauquiz">
                          <div class="entree-nouveauquiz nom-nouveauquiz">
@@ -29,7 +29,7 @@
                          </div>
 
                          <div class="entree-nouveauquiz image-nouveauquiz">
-                              <input type="file" name="image" src="ressources/icon/ajouterImage.png" id="imageicon-nouveau">
+                              <input type="file" name="image"  accept="image/png, image/jpeg"  id="imageicon-nouveau">
                           </div>
                     </div>
 
@@ -40,12 +40,12 @@
 					    </div>
 
 					    <div class="entree-nouveauquiz reponse-nouveauquiz">
-					        <input type="radio" id="reponseA" name="reponse'.$i.'" value="reponseA" checked>
+					        <input type="radio" id="reponseA" name="reponseCorrect'.$i.'" value="reponseA" checked>
                         	<input type="text" name="reponseA'.$i.'" placeholder="reponseA" required>
                         </div>
 
                         <div class="entree-nouveauquiz reponse-nouveauquiz">
-                        	<input type="radio" id="reponseB" name="reponse'.$i.'" value="reponseB">
+                        	<input type="radio" id="reponseB" name="reponseCorrect'.$i.'" value="reponseB">
                             <input type="text" name="reponseB'.$i.'" placeholder="reponseB" required>
                         </div>
 
