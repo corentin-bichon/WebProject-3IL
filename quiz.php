@@ -3,21 +3,57 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="CSS\mainSheet.css" type="text/css"/>
 		<link rel="shortcut icon" type="image/x-icon" href="ressources/logo/favicon.ico">
+		<script type="text/javascript" src="script/quiz.js"></script>
 		<title>Quiz - Ruthen Quiz</title>
 	</head>
 
 	<body>
+
+
 		<?php require_once 'extensions/navbar.php'; ?>
 
+		<?php
+			/*class Quiz {
+				private $question = "";
+				private $reponse_A = "";
+				private $reponse_B = "";
+				private $bonne_reponse = "";
+				private $supplement_reponse = "";
+			}*/
+
+		    if(isset($_GET['theme']) && $theme = $_GET['theme']) {
+                 //Le quiz commence
+            } else {
+                header('Location: theme.php');
+            }
+
+            try {
+        		$user = 'root';
+        		$pass = '';
+
+        		// Connexion BDD
+        		$db = new PDO('mysql:host=localhost;dbname=bdd_application_ruthenquiz', $user, $pass);
+
+      		} catch (PDOException $e) {
+        		print "Erreur : ".$e->getMessage()."<br/>";
+        		die();
+      		}
+
+            foreach($db->query("SELECT * FROM quiz WHERE id_theme = '$theme' ORDER BY RAND() LIMIT 5") as $listeQuiz) {
+
+            }
+
+        ?>
+
 		<div class="quiz-header">
-			<h1 class="quiz-title">Napoléon</h1>
-			<div class="text-right">
-				<span class="questions-affectuees">7</span>
-				<span class="total-question">/10</span>
+		    <h1 class="quiz-title"> <?php echo $theme; ?></h1>
+		    <div id="text-right">
+				<span id="indexQuestion">1</span>
+				<span id="totalQuestion">/5</span>
 			</div>
 		</div>
 		<div class="quiz-progression">
-			<div class="quiz-barre">
+			<div id="barreProgression" style="width: 20%;">
 				
 			</div>
 		</div>
@@ -28,16 +64,19 @@
 				</div>
 				<div class="justify-quiz">
 					<div class="quiz-question">
-					    <p>Qui a été tué par Brutus en 44 av. J.-C par un coup de couteau ?</p>
+						Qui a été tué par Brutus ?
+					    <?php
+					    	
+					    ?>
 					</div>
 					<div class="quiz-propositions">	
-						<a class="btn-quiz btn-proposition proposition-gauche" onclick="cacherSupplement();">
+						<a class="btn-quiz btn-proposition proposition-gauche" onclick="reponseQuestion('reponse_A');">
 							<span class="text-proposition">Jules César</span>
 						</a>
-						<a class="btn-quiz btn-suivant btn-invisible">
+						<a class="btn-quiz btn-suivant" onclick="chargerQuestion();" style="display: none">
 					        <span>Continuer</span>
 					    </a>	
-						<a class="btn-quiz btn-proposition proposition-droite" onclick="afficherSupplement();">
+						<a class="btn-quiz btn-proposition proposition-droite" onclick="reponseQuestion('reponse_B');">
 							<span class="text-proposition">Auguste</span>
 						</a>	
 						
@@ -45,32 +84,32 @@
 				</div>
 			</div>
 			<div class="quiz-supplement-reponse" id="supplement_reponse">
-				<div class="quiz-reponse">
-					Bonne réponse : Jules César
+				<div class="text-reponse">
+					<div class="quiz-bonne-reponse" style="display: none;">
+						Bonne réponse !
+					</div>
+					<div class="quiz-mauvaise-reponse" style="display: none;">
+						Mauvaise réponse...
+					</div>
+					<div class="quiz-reponse">
+						<?php 
+							echo 'La bonne réponse est';
+						?> 
+					</div>
 				</div>
-				<div class="texte-supplement-reponse">
-					<p>
+				<div class="container-supplement-reponse">
+					<p class="texte-supplement-reponse">
 					En effet, Jules César est tué par Brutus, son fils adoptif le 15 mars en 44 av. J.-C.
 					</p>
 				</div>
 			</div>
 		</div>
+
+		
 		<?php require_once 'extensions/footer.html'; ?>
 	</body>
 
-	<script> 
-		function afficherSupplement() {
-			document.getElementById("supplement_reponse").style.display = "block";
-		}
-
-		function cacherSupplement() {
-			document.getElementById("supplement_reponse").style.display = "none";
-		}
-
-		function afficherResultatQuiz() {
-			document.getElementById("fin-quiz").style.display = "block";
-		}
-	</script>
+	<script type="text/javascript">document.addEventListener('DOMContentLoaded', set_quiz());</script>
 
 	<?php 
 		function open_db() {
@@ -89,13 +128,11 @@
       		return $db;
 		}
 
-		function reponse_question($reponse_donnee) {
-			$db = open_db();
-
+		function quiz_est_fini() {
 			
 		}
 
-		function est_fini() {
+		function reponse_quiz() {
 			
 		}
 	 ?>

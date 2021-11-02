@@ -3,7 +3,8 @@
 		<link rel="stylesheet" href="CSS\mainSheet.css" type="text/css"/>
 		<meta charset="utf-8"/>
 		<link rel="shortcut icon" type="image/x-icon" href="ressources/logo/favicon.ico">
-		<title>Thèmes - Ruthen Quiz</title>
+    <script type="text/javascript" src="script/quiz.js"></script>
+		<title>Thèmes - Ruthen Quiz</title>   
 	</head>
 	<body>
 		
@@ -22,26 +23,35 @@
         die();
       }
     ?>
+    <section>
+      <!-- Affichage des thèmes  -->
 
-        <ul class="grid grid-theme">
-          <?php foreach ($db->query('SELECT * FROM theme') as $nomtheme) { ?>
-            <li class="theme">           
-            <a href="index.html">           	
-            	<div class="card">           		
-    	        	<?php
-                    echo '<img src="ressources/images/'.$nomtheme['nom'].'.jpg" class="img-theme"></img>' 
-                ?>  		
-             		<div class="card-text"> 
-             			<div class="text-theme title">
-    	        		 	<?php echo $nomtheme['nom'] ?>
-    	        		</div> 		
-    	        	</div>
-    	        </div>
-            </li>
-          <?php } ?>
-        </ul>   	        
+       <ul class="grid grid-theme">
+          <?php 
+              foreach ($db->query('SELECT * FROM theme') as $theme) {
+                  echo '<li class="theme">';
+                      echo '<div class="card" onclick="commencerQuiz(\''.$theme['nom'].'\')">' ;
+                          echo '<img src="ressources/images/'.$theme['nom'].'.jpg" class="img-theme"></img>' ;
+                          echo '<div class="card-text">';
+                              echo '<div class="text-theme title">';
+    	                            echo $theme['nom'];
+    	                        echo '</div>';
+    	                    echo '</div>';
+    	                echo '</div>';
+                  echo '</li>';
+              }
+          ?>
+       </ul>
+    </section>
+
 	</body>
 
-	<?php require_once 'extensions/footer.php'; ?>
+
+	<?php require_once 'extensions/footer.html'; ?>
+
+	<!-- Redirection vers le quiz  -->
+
+
+	<?php require_once 'extensions/footer.html'; ?>
 
 </html>

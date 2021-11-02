@@ -2,6 +2,6 @@
 
   session_start();
   session_unset();
-  header('Location: ../compte.php');
+  header('Location: ../index.php?deconnexion=1');
 
 ?>

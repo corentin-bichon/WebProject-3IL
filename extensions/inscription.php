@@ -18,10 +18,7 @@ if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['preno
 
          //Hachage du mot de passe
          $pepper = "c1isvFdxMDdmjOlvxpecFw";
-         $password_hachage = hash_hmac("sha256", $password, $pepper);
-         $password_haché = password_hash($password_hachage, PASSWORD_ARGON2ID);
-
-
+         $password_haché = hash_hmac("sha256", $password, $pepper);
 
          if($username !== "" && $password !== "" && $firstname !== "" && $name !== "") {
 
@@ -42,7 +39,7 @@ if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['preno
 
                  if($rep) {
                     $_SESSION['username'] = $username;
-                    header('Location: ../index.php');
+                    header('Location: ../index.php?connexion=1');
                  } else {
                     header('Location: ../compte.php?erreur=2');
                  }

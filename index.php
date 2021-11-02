@@ -3,12 +3,12 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="CSS\mainSheet.css" type="text/css"/>
 		<link rel="shortcut icon" type="image/x-icon" href="ressources/logo/favicon.ico">
+		<script type="text/javascript" src="script/quiz.js"></script>
 		<title>Accueil - Ruthen Quiz</title>
 	</head>
 
 	<body>
 		<?php require_once 'extensions/navbar.php'; ?>
-
 
 		<!-- Message de bienvenue -->
 
@@ -20,8 +20,6 @@
                          echo "<div class='message-bienvenue'> Bonjour et bienvenue sur Ruthen Quiz </div>" ;
                      }
         ?>
-
-
 
 	   <!-- Thèmes -->
 	    <?php
@@ -43,14 +41,14 @@
 			<div class="viewer-container">
 				<?php 
 					$limitetheme = 5;
-					foreach ($db->query('SELECT * FROM theme LIMIT '.$limitetheme.'') as $nomtheme) { 
+					foreach ($db->query('SELECT * FROM theme ORDER BY RAND() LIMIT '.$limitetheme.'') as $nomtheme) { 
 				?>
-				<a href="quiz.php">
 				<div class="mesThemes fade">
 					<?php		
-  					    echo '<img src="ressources/images/'.$nomtheme['nom'].'.jpg" class="img-viewer" style="width:100%">';
+  					    echo '<img src="ressources/images/'.$nomtheme['nom'].'.jpg" class="img-viewer" style="width:100%" 
+  					    onclick="commencerQuiz(\''.$nomtheme['nom'].'\')">';
   					    echo '<div class="text-background">';
-  					    	echo '<div class="text">'.$nomtheme['nom'].'</div>';
+  					    	echo '<div class="text-viewer">'.$nomtheme['nom'].'</div>';
   					    echo '</div>'
   					?>
 				</div>
@@ -62,9 +60,6 @@
 
 			<div style="text-align:center">
 				<?php 					
-				    $nbtheme = $db->query('SELECT * FROM theme
-				    					   ORDER BY RAND()
-										   LIMIT '.$limitetheme.''); 
 				    for ($i=1; $i<=$limitetheme; $i++) {
   				        echo '<span class="point" onclick="currentIndex('.$i.')"></span>'; 
   				    } 
@@ -86,11 +81,38 @@
 				</div>
 	
 			</div>
+
+			<!-- Popup Connexion/Deconnexion Réussie -->
+			<?php
+               if(isset($_GET['connexion'])){
+                      $connexion = $_GET['connexion'];
+                      if($connexion==1) {
+                            echo '<script type="text/javascript">  document.addEventListener("DOMContentLoaded", function() { popupSuccesConnexion(); }, false); </script>';
+                      }
+               }
+                if(isset($_GET['deconnexion'])){
+                        $deconnexion = $_GET['deconnexion'];
+                        if($deconnexion==1) {
+                             echo '<script type="text/javascript">  document.addEventListener("DOMContentLoaded", function() { popupSuccesDeconnexion(); }, false); </script>';
+                       }
+                }
+            ?>
+
+			<div class="popup-succes" id="popup-connexion" onclick="popupSuccesConnexion()">
+                 <img src="ressources/icon/valider.png" id="popup-icon" />
+                 <span id="popup-texte"> Connexion réussie ! </span>
+            </div>
+
+            <div class="popup-succes" id="popup-deconnexion" onclick="popupSuccesDeconnexion()">
+                  <img src="ressources/icon/valider.png" id="popup-icon" />
+                  <span id="popup-texte"> Deconnexion réussie ! </span>
+            </div>
 	
 		</section>
 	
 			<?php require_once 'extensions/footer.html'; ?>
-	
+
+		<!-- Affichage Thèmes Viewer -->
 		<script>
 			var indexViewer = 1;
 			showTheme(indexViewer);
@@ -128,6 +150,38 @@
   				points[indexViewer-1].className += " active";
 			}
 		</script>
+
+
+		<!-- Popup Connexion/Deconnexion Réussie  -->
+
+		<script type="text/javascript">
+                     var affichageDeconnexion = 0 ;
+                     var affichageConnexion = 0 ;
+
+                     function popupSuccesConnexion() {
+                         if (affichageConnexion == 0 ) {
+                             document.getElementById("popup-connexion").style.display = "block";
+                             affichageConnexion = 1 ;
+                             setTimeout(popupSuccesConnexion, 10000);
+                         } else {
+                             document.getElementById("popup-connexion").style.display = "none";
+                             affichageConnexion = 0 ;
+                             document.location.href="index.php";
+                         }
+                     }
+
+                     function popupSuccesDeconnexion() {
+                         if (affichageDeconnexion == 0 ) {
+                             document.getElementById("popup-deconnexion").style.display = "block";
+                             affichageDeconnexion = 1 ;
+                             setTimeout(popupSuccesDeconnexion, 10000);
+                         } else {
+                             document.getElementById("popup-deconnexion").style.display = "none";
+                             affichageDeconnexion = 0 ;
+                             document.location.href="index.php";
+                         }
+                     }
+        </script>
 
 	</body>
 

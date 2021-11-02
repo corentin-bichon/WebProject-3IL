@@ -14,11 +14,19 @@
              function supprimer(pseudo, prenom, nom) {
 
                   var xmlhttp;
-                  xmlhttp = new XMLHttpRequest();
-                  xmlhttp.open("GET","extensions/suppression.php?login=" + pseudo + "&prenom=" + prenom + "&nom=" + nom, true);
-                  xmlhttp.send();
+                  var status;
+                  var sessionPseudo = "<?php echo $_SESSION['username'] ; ?>";
 
-                  location.reload();
+                  if ( pseudo == sessionPseudo ) {
+                      status = 0 ;
+                  } else {
+                      xmlhttp = new XMLHttpRequest();
+                      xmlhttp.open("GET","extensions/suppression.php?login=" + pseudo + "&prenom=" + prenom + "&nom=" + nom, true);
+                      var reponse = xmlhttp.send();
+                      status = 1 ;
+                  }
+
+                  document.location.href="administrateur.php?suppression=" + status + "";
              }
         </script>
 
@@ -72,8 +80,63 @@
 
          </div>
 
+         <?php require_once 'extensions/footer.html'; ?>
 
-	    <?php require_once 'extensions/footer.html'; ?>
+
+         <!-- Popup Suppression Réussie/Ratée -->
+
+			<?php
+               if(isset($_GET['suppression'])){
+                      $suppression = $_GET['suppression'];
+                      if($suppression == 1) {
+                           echo '<script type="text/javascript">  document.addEventListener("DOMContentLoaded", function() { popupSuccesSuppresion(); }, false); </script>';
+                      } elseif($suppression == 0) {
+                           echo '<script type="text/javascript">  document.addEventListener("DOMContentLoaded", function() { popupErreurSuppresion(); }, false); </script>';
+                      }
+               }
+            ?>
+
+			<div class="popup-succes" id="popup-suppression-succes" onclick="popupSuccesSuppresion()">
+                 <img src="ressources/icon/valider.png" id="popup-icon" />
+                 <span id="popup-texte"> Suppression réussie ! </span>
+            </div>
+
+            <div class="popup-erreur" id="popup-suppression-erreur" onclick="popupErreurSuppresion()">
+                  <img src="ressources/icon/erreur.png" id="popup-icon-erreur" />
+                  <span id="popup-texte-erreur"> Suppression impossible ! </span>
+            </div>
+
+
+        <!-- Popup Connexion/Deconnexion Réussie  -->
+
+        <script type="text/javascript">
+                var affichageSucces = 0 ;
+                var affichageErreur = 0 ;
+
+                             function popupSuccesSuppresion() {
+                                 if (affichageSucces == 0 ) {
+                                     document.getElementById("popup-suppression-succes").style.display = "block";
+                                     affichageSucces = 1 ;
+                                     setTimeout(popupSuccesSuppresion, 5000);
+                                 } else {
+                                     document.getElementById("popup-suppression-succes").style.display = "none";
+                                     affichageSucces = 0 ;
+                                     document.location.href="administrateur.php";
+                                 }
+                             }
+
+                             function popupErreurSuppresion() {
+                                 if (affichageErreur == 0 ) {
+                                     document.getElementById("popup-suppression-erreur").style.display = "block";
+                                     affichageErreur = 1 ;
+                                     setTimeout(popupErreurSuppresion, 10000);
+                                 } else {
+                                     document.getElementById("popup-suppression-erreur").style.display = "none";
+                                     affichageErreur = 0 ;
+                                     document.location.href="administrateur.php";
+                                 }
+                             }
+         </script>
 
 	</body>
 
