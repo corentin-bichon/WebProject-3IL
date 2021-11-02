@@ -5,10 +5,10 @@
 	</div>
 	
 	<div class="navbar">
-	    <a href="index.php">Accueil</a> 
-	   	<a href="forms.html">Formulaire</a>
-	   	<a href="theme.php">Thèmes</a>
-	   	<a href="create.html">Créer</a>
+	    <a href="index.php">Accueil</a>
+	    <a href="theme.php">Thèmes</a>
+	   	<a href="quiz.php">Quiz</a>
+	   	<a href="nouveauquiz.php">Créer</a>
 
    		<?php
              session_start();
