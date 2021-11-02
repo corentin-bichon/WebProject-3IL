@@ -7,46 +7,44 @@
 		<title>Quiz - Ruthen Quiz</title>
 	</head>
 
-	<body>
+	<body onload="maFonc();">
 
 
 		<?php require_once 'extensions/navbar.php'; ?>
 
-		<?php
-			/*class Quiz {
-				private $question = "";
-				private $reponse_A = "";
-				private $reponse_B = "";
-				private $bonne_reponse = "";
-				private $supplement_reponse = "";
-			}*/
-
-		    if(isset($_GET['theme']) && $theme = $_GET['theme']) {
+		<?php 
+			if(isset($_GET['theme']) && $theme = $_GET['theme']) {
                  //Le quiz commence
             } else {
                 header('Location: theme.php');
             }
 
-            try {
-        		$user = 'root';
-        		$pass = '';
+			$array = array();
 
-        		// Connexion BDD
-        		$db = new PDO('mysql:host=localhost;dbname=bdd_application_ruthenquiz', $user, $pass);
+			$con = mysqli_connect('localhost', 'root', '', 'bdd_application_ruthenquiz');
 
-      		} catch (PDOException $e) {
-        		print "Erreur : ".$e->getMessage()."<br/>";
-        		die();
-      		}
+			if (mysqli_connect_errno()) {
+				echo json_encode("Erreur de connexion");
+			} else {
+				
+				$rep = mysqli_query($con, "SELECT * from theme where id_theme = '".$theme."'");
+				while ($row = mysqli_fetch_assoc($rep)) {
+    				echo $row['id_theme'];
+				}				
 
-            foreach($db->query("SELECT * FROM quiz WHERE id_theme = '$theme' ORDER BY RAND() LIMIT 5") as $listeQuiz) {
-
-            }
-
-        ?>
+				$result = mysqli_query($con, "SELECT * FROM quiz WHERE id_theme = 1 ORDER BY RAND() LIMIT 5");
+				
+				while($row = mysqli_fetch_assoc($result)) {
+					$array[] = array("id_quiz" => $row['id_quiz'], "question" => $row['question'], "reponse_A" => $row['reponse_A'], 
+					"reponse_B" => $row['reponse_B'], "supplement_reponse" => $row['supplement_reponse'], "bonne_reponse" => $row['bonne_reponse']);				
+				}
+				mysqli_close($con);
+				echo json_encode($array);
+			}
+		?>
 
 		<div class="quiz-header">
-		    <h1 class="quiz-title"> <?php echo $theme; ?></h1>
+		    <h1 class="quiz-title"> <?php /*echo $theme;*/ ?></h1>
 		    <div id="text-right">
 				<span id="indexQuestion">1</span>
 				<span id="totalQuestion">/5</span>
@@ -110,30 +108,4 @@
 	</body>
 
 	<script type="text/javascript">document.addEventListener('DOMContentLoaded', set_quiz());</script>
-
-	<?php 
-		function open_db() {
-			try {
-        		$user = 'root';
-        		$pass = '';
-
-        		// Connexion BDD
-        		$db = new PDO('mysql:host=localhost;dbname=bdd_application_ruthenquiz', $user, $pass);
-
-      		} catch (PDOException $e) {
-        		print "Erreur : ".$e->getMessage()."<br/>";
-        		die();
-      		}
-
-      		return $db;
-		}
-
-		function quiz_est_fini() {
-			
-		}
-
-		function reponse_quiz() {
-			
-		}
-	 ?>
 </html>
