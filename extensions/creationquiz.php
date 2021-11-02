@@ -20,8 +20,19 @@ if(isset($_POST['nomquiz'])) {
       // Pour eviter les attaques à injection SQL
       $nomquiz = htmlspecialchars($_POST['nomquiz']);
 
+      //Telechargement de l'image
+      if ( isset($_FILES['image'])) {
+          $target_dir = '../ressources/images';
+          $target_file = $target_dir . "salutfdp.jpg";
+          if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+              $nomquiz = "testOK";
+          } else {
+              $nomquiz = "testfail";
+          }
+      }
+
       if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1)  {
-           $requete = "INSERT INTO `theme`(`nom`) VALUES ('".$nomquiz."')";
+           $requete = "INSERT INTO `theme`(`nom`,`image`) VALUES ('".$nomquiz."','".basename($_FILES["image"]["name"])."')";
            $rep = $db->query($requete);
 
            $requete1 = "SELECT `id_theme` FROM `theme` WHERE `nom` = '".$nomquiz."'";
@@ -37,7 +48,8 @@ if(isset($_POST['nomquiz'])) {
       if(isset($theme) && $theme != "")  {
 
           for ( $i = 1; $i <= 2; $i++ ) {
-              $requete2 = "INSERT INTO `quiz`(`question`, `bonne_reponse`, `reponse_A`, `reponse_B`, `supplement_reponse`, `id_theme`) VALUES ('".$_POST['question'.$i.'']."','".$_POST['reponseA'.$i.'']."','".$_POST['reponseA'.$i.'']."','".$_POST['reponseB'.$i.'']."','".$_POST['inforeponse'.$i.'']."','".$theme."')" ;
+              $bonne_reponse =  ((($_POST['reponseCorrect'.$i.'']) == "reponseA") ? $_POST['reponseA'.$i.''] : $_POST['reponseB'.$i.'']) ;
+              $requete2 = "INSERT INTO `quiz`(`question`, `bonne_reponse`, `reponse_A`, `reponse_B`, `supplement_reponse`, `id_theme`) VALUES ('".$_POST['question'.$i.'']."','".$bonne_reponse."','".$_POST['reponseA'.$i.'']."','".$_POST['reponseB'.$i.'']."','".$_POST['inforeponse'.$i.'']."','".$theme."')" ;
               $rep2 = $db->query($requete2);
           }
 
