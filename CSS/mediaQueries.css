@@ -1,15 +1,75 @@
-/*
-@media screen and (max-width : 560px){
-    nav{
-        flex-direction: column;
+
+/* Navbar responsive */
+@media screen and (max-width : 1135px){
+    .navbar{
+        margin-top: 85px;
+        justify-content: space-around;
     }
 
-    section{
-        display:none;
-    }
-
-    h1{
-        font-size: 14px;
+    .logoMenu img {
+        position: absolute;
+        width: 170px;
+        height: 100px;
+        z-index: 1;
+        background: transparent;
+        top: 1%;
+        left: 50%;
+        margin: 0;
+        transform: translate(-50%, 0%);
     }
 }
-*/
+
+/* Footer responsive */
+@media screen and (max-width : 940px){
+
+    .footer-column {
+        width: 100%;
+        margin-bottom: 25px;
+    }
+
+    .footer-middle {
+        text-align: center;
+        border-bottom: 2px solid #92999f;
+        padding-bottom: 20px;
+    }
+
+    .footer-beginning {
+        border-bottom: 2px solid #92999f;
+        padding-bottom: 20px;
+    }
+
+}
+
+/* Affichage thème responsive */
+@media screen and (max-width: 950px) {
+    .card {
+        width: 350px;
+    }
+
+    .viewer-container {
+        max-width: 350px;
+    }
+}
+
+
+/* Créer Quiz responsive */
+@media screen and (max-width: 1150px) {
+    .information-nouveauquiz {
+        flex-direction: column;
+        padding: 0px;
+    }
+
+    .ligne-nouveauquiz {
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding-bottom: 20px;
+        padding-top: 40px;
+        border-top: 2px solid #92999f;
+    }
+
+    .cadre-nouveauquiz {
+        margin: auto;
+        padding: 0;
+    }
+}
+

@@ -60,7 +60,8 @@ header {
 
 .navbar {
     display: flex;      
-    flex-direction: row;  
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;   
     justify-content: flex-end;  
@@ -187,7 +188,8 @@ footer {
 }
   
 .footer-global {
-    display: flex;      
+    display: flex;
+    flex-wrap: wrap;
     flex-direction: row;        
     padding:0;
     padding-top: 10px;
@@ -330,7 +332,7 @@ body::before {
 
 .connexion-valider {
     margin: 50px auto auto auto;
-    width: 130px;
+    width: 180px;
 }
 
 #valider {
@@ -646,7 +648,7 @@ body::before {
 
 .grid {
     display: table;
-    width: 980px;
+    max-width: 980px;
     table-layout: fixed;
 }
 
@@ -667,6 +669,7 @@ body::before {
     justify-content: center;
     padding-top: 100px;
     flex-wrap: wrap;
+    margin-bottom: 80px;
 }
 
 .grid-theme p {
@@ -757,16 +760,6 @@ body::before {
     display: flex;
     width: 100%;
     border-radius: 10px 10px 0 0; 
-}
-
-@media screen and (max-width: 950px) {
-  .card {    
-      width: 350px;   
-  }
-
-  .viewer-container {
-      max-width: 350px; 
-  }
 }
 
 /*|-----------------------------------------------------------------|
@@ -1052,7 +1045,7 @@ body::before {
 .entree-nouveauquiz {
     font-family: Poppins-Regular;
     font-size: 16px;
-    color: #fff;
+    color: #92999f;
     line-height: 1.2;
     display: block;
     width: 100%;
