@@ -105,7 +105,7 @@ header {
     max-height: 100px;
     margin-left: 50px;
     z-index: 1;
-    background-color: #FBE5AC ;
+    background-color: #f5f7fa ;
 }
 
 /* Corps de la page */
@@ -555,6 +555,10 @@ body::before {
 }
 
 #popup-connexion-erreur {
+    display: none;
+}
+
+#popup-theme-succes {
     display: none;
 }
 

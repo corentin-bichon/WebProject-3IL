@@ -8,11 +8,11 @@
 	    <a href="index.php">Accueil</a>
 	    <a href="theme.php">Thèmes</a>
 	   	<a href="quiz.php">Quiz</a>
-	   	<a href="nouveauquiz.php">Créer</a>
 
    		<?php
              session_start();
              if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
+             	  echo '<a href="nouveauquiz.php">Créer</a>';
                   echo '<a href="administrateur.php"> Administrateur </a>';
              }
 

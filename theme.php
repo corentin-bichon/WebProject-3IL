@@ -31,7 +31,8 @@
               foreach ($db->query('SELECT * FROM theme') as $theme) {
                   echo '<li class="theme">';
                       echo '<div class="card" onclick="commencerQuiz(\''.$theme['nom'].'\')">' ;
-                          echo '<img src="ressources/images/'.$theme['nom'].'.jpg" class="img-theme"></img>' ;
+                          $image = (($theme['image'] != NULL) ? $theme['image'] : 'logo_icon.png' ) ;
+                          echo '<img src="ressources/images/'.$image.'" class="img-theme"></img>' ;
                           echo '<div class="card-text">';
                               echo '<div class="text-theme title">';
     	                            echo $theme['nom'];
@@ -42,16 +43,43 @@
               }
           ?>
        </ul>
+
+    <!-- Popups création du thème SUCCES  -->
+
+    <div class="popup-succes" id="popup-theme-succes" onclick="popupSuccesTheme()">
+            <img src="ressources/icon/valider.png" id="popup-icon" />
+            <span id="popup-texte"> Quiz crée avec succés </span>
+    </div>
+
+    <?php
+        if(isset($_GET['creationquiz'])){
+              $creationquiz = $_GET['creationquiz'];
+              if($creationquiz==1) {
+                  echo '<script type="text/javascript">  document.addEventListener("DOMContentLoaded", function() { popupSuccesTheme(); }, false); </script>';
+             }
+        }
+     ?>
+
     </section>
 
+    <script type="text/javascript">
+           var affichageTheme = 0 ;
+
+           function popupSuccesTheme() {
+               if (affichageTheme == 0 ) {
+                   document.getElementById("popup-theme-succes").style.display = "block";
+                   affichageTheme = 1 ;
+                   setTimeout(popupSuccesConnexion, 10000);
+               } else {
+                   document.getElementById("popup-theme-succes").style.display = "none";
+                   affichageTheme = 0 ;
+                   document.location.href="theme.php";
+               }
+           }
+    </script>
+
+    <?php require_once 'extensions/footer.html'; ?>
+
 	</body>
-
-
-	<?php require_once 'extensions/footer.html'; ?>
-
-	<!-- Redirection vers le quiz  -->
-
-
-	<?php require_once 'extensions/footer.html'; ?>
 
 </html>
