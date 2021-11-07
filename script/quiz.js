@@ -92,6 +92,7 @@ function reponseQuestion($reponse) {
 
 // Affich dans le lien sur quel theme nous sommes
 function commencerQuiz($nomtheme, $idtheme, $img) {
+    document.location.href="quiz.php?theme=" + $nomtheme + "&idtheme=" + $idtheme + "&img=" + $img +"";
 	document.location.href="quiz.php?theme=" + $nomtheme + "&idtheme=" + $idtheme + "&img=" + $img +"";
 }
 
