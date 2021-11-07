@@ -41,11 +41,11 @@
 			<div class="viewer-container">
 				<?php 
 					$limitetheme = 5;
-					foreach ($db->query('SELECT * FROM theme ORDER BY RAND() LIMIT '.$limitetheme.'') as $nomtheme) { 
+					foreach ($db->query('SELECT * FROM theme WHERE image != "null" ORDER BY RAND() LIMIT '.$limitetheme.'') as $nomtheme) {
 				?>
 				<div class="mesThemes fade">
 					<?php		
-  					    echo '<img src="ressources/images/'.$nomtheme['nom'].'.jpg" class="img-viewer" style="width:100%" 
+  					    echo '<img src="ressources/images/'.$nomtheme['image'].'" class="img-viewer" style="width:100%"
   					    onclick="commencerQuiz(\''.$nomtheme['nom'].'\')">';
   					    echo '<div class="text-background">';
   					    	echo '<div class="text-viewer">'.$nomtheme['nom'].'</div>';

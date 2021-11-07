@@ -22,8 +22,6 @@ A
 ,.idea/inspectionProfiles/Project_Default.xml,4\9\496a238a6afa168dbaf6efd37bb459331589579c
 J
 extensions/inscription.php,3\f\3fa0db55d41142027893bf535c4a94f29ca20a68
-D
-extensions/alerte.js,4\5\45944a790f00d421eb997ae073f3fcd26ad04cb9
 E
 extensions/navbar.php,d\a\da69fc077d7762f637d6f0c00a5030719a6390e7
 H
@@ -38,3 +36,7 @@ B
 quiz.php,6\6\664604a5513f39d56249d23602357a7ae00d9e07
 ?
 nouveauquiz.php,e\d\ed98a901f40136e8de165077f5b7d4f3250b5991
+K
+extensions/creationquiz.php,9\c\9ca7f3da01851c627b5de63634fc0c4c9791918c
+N
+extensions/traitement-quiz.php,f\a\fafec2830fce05cf8e046db0233879c31ba3bfc0

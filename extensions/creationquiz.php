@@ -22,12 +22,12 @@ if(isset($_POST['nomquiz'])) {
 
       //Telechargement de l'image
       if ( isset($_FILES['image'])) {
-          $target_dir = '../ressources/images';
-          $target_file = $target_dir . "salutfdp.jpg";
+          $target_dir = '../ressources/images/';
+          $target_file = $target_dir . basename($_FILES["image"]["name"]);
           if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-              $nomquiz = "testOK";
+               print "SUCCES lors du téléchargement de l'image <br/>";
           } else {
-              $nomquiz = "testfail";
+               print "Erreur lors du téléchargement de l'image : ".$e->getMessage()."<br/>";
           }
       }
 
@@ -53,7 +53,7 @@ if(isset($_POST['nomquiz'])) {
               $rep2 = $db->query($requete2);
           }
 
-          header('Location: ../index.php?creationquiz=1');
+          header('Location: ../theme.php?creationquiz=1');
 
       } else {
           header('Location: ../nouveauquiz.php?erreur=1');
@@ -62,7 +62,7 @@ if(isset($_POST['nomquiz'])) {
 
 
 } else {
-     header('Location: ../nouveauquiz.php?erreur=1');
+     header('Location: ../nouveauquiz.php?erreur=2');
 }
 
 ?>
