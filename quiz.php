@@ -23,14 +23,6 @@
 
     		}	
 
-    		if(isset($_GET['img']) && $img = $_GET['img'] ) {  
-    			//Le quiz commence
-    		} else {
-        		header('Location: theme.php');
-    		}	
-
-    		}
-
     		if(isset($_GET['img']) && $img = $_GET['img'] ) {
                 //Le quiz commence
             } else {
