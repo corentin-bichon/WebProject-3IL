@@ -7,21 +7,21 @@
         //header('Location: ../theme.php');
     }
 
-    $id_theme = 0;
+    if(isset($_GET['idtheme']) && $idtheme = $_GET['idtheme'] ) {  
+    	//Le quiz commence
+    } else {
+        //header('Location: ../theme.php');
+    }
+
     $array = array();
 	$con = mysqli_connect('localhost', 'root', '', 'bdd_application_ruthenquiz');
-	
 
 	if (mysqli_connect_errno()) {
-		echo json_encode("Erreur de connexion");
+		echo json_encode("Erreur de connexion");	
 	} else {
-				
-		/*$rep = mysqli_query($con, "SELECT * from theme where nom = '".$theme."'");
-		while ($row = mysqli_fetch_assoc($rep)) {
-    		 $id_theme = $row['id_theme'];
-		}*/			
-
-		$result = mysqli_query($con, "SELECT * FROM quiz WHERE id_theme = 1 ORDER BY RAND() LIMIT 5");
+			
+		$req = "SELECT * FROM quiz WHERE id_theme = ".$idtheme." ORDER BY RAND() LIMIT 5";				
+		$result = mysqli_query($con, $req);
 
 		while ($theme = mysqli_fetch_assoc($result)) { 
 			$array[] = array("id_quiz" => $theme['id_quiz'], "question" => $theme['question'], "reponse_A" => $theme['reponse_A'], 
@@ -31,9 +31,4 @@
 		mysqli_close($con);
 		echo json_encode($array);
 	}
-
-	/*function finQuiz() {
-
-	}*/
-
 ?>

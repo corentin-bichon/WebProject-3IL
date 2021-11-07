@@ -390,6 +390,7 @@ body::before {
 
 .mesThemes {
     display: none;
+    cursor: pointer;
 }
 
 /* Conteneur du viewer qui affiche les themes grâce aux images */
@@ -490,7 +491,6 @@ body::before {
     border-radius: 20px;
     vertical-align: middle;
     box-shadow:5px 5px 8px 0 rgba(0, 0, 0, 0.5);
-    cursor: pointer;
 }
 
 /* Style du texte qui s'affiche sur le viewer des thèmes */
@@ -892,16 +892,18 @@ body::before {
     justify-content: end;
     margin-left: 10px;
     max-width: 25%;
-    min-height: 1px;
+    min-height: 1px;f
 }
 
 .quiz-bonne-reponse {
-    font-weight: bold;
+    font-size: 25px;
+    font-weight: 600;
     color: #14CD17;
 }
 
 .quiz-mauvaise-reponse {
-    font-weight: bold;
+    font-size: 25px;
+    font-weight: 600;
     color: #EC0F0F;
 }
 
@@ -980,7 +982,9 @@ body::before {
     padding: 10px 16px;  
     display: inline-block;
     transition: transform 0.4s ease-out; 
-    cursor: pointer;      
+    cursor: pointer;    
+    white-space: normal;
+    word-wrap: break-word;  
 }
 
 .btn-quiz:hover {
