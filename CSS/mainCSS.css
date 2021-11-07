@@ -440,6 +440,14 @@ body::before {
     margin-bottom: 200px;
 }
 
+#titre-tableau-classement {
+    border-bottom: 2px solid #e0e0e0;
+    border-collapse: collapse;
+    background-color: #FFEEDB;
+    font-weight: bold;
+    padding: 12px;
+}
+
 .titre-tableau {
     border-bottom: 2px solid #e0e0e0;
     border-collapse: collapse;
@@ -1132,4 +1140,9 @@ body::before {
    padding: 20px 140px 60px 190px;
    display: flex;
    flex-direction: row;
+}
+
+#imageicon-classement {
+    height: 22px;
+    vertical-align: bottom;
 }

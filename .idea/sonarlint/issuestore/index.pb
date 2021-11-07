@@ -40,3 +40,11 @@ K
 extensions/creationquiz.php,9\c\9ca7f3da01851c627b5de63634fc0c4c9791918c
 N
 extensions/traitement-quiz.php,f\a\fafec2830fce05cf8e046db0233879c31ba3bfc0
+@
+script/alerte.js,9\e\9e41ac5bbab0caf84e1159a9cfa3099880edcef0
+>
+script/quiz.js,b\6\b600735ba7d929552af6b6ca37b4eae7d7485af6
+A
+CSS/mainSheet.css,0\6\0617c0e3468ce1d92335712d14f629a1ee81343e
+D
+CSS/mediaQueries.css,5\c\5cfa23543a9ddfd2e87f16cbcb220177fd1639d4
