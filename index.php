@@ -46,7 +46,7 @@
 				<div class="mesThemes fade">
 					<?php		
   					    echo '<img src="ressources/images/'.$nomtheme['image'].'" class="img-viewer" style="width:100%"
-  					    onclick="commencerQuiz(\''.$nomtheme['nom'].'\')">';
+  					    onclick="commencerQuiz(\''.$nomtheme['nom'].'\', \''.$nomtheme['id_theme'].'\')">';
   					    echo '<div class="text-background">';
   					    	echo '<div class="text-viewer">'.$nomtheme['nom'].'</div>';
   					    echo '</div>'

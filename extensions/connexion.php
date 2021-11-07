@@ -27,6 +27,7 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
              if( $password_hache == $utilisateur['motdepasse']) {
                 $_SESSION['username'] = $utilisateur['login'];
                 $_SESSION['admin'] = $utilisateur['admin'];
+                $_SESSION['id'] = $utilisateur['id_utilisateur'];
 
                 //Ajouter la date de connexion
                 $requete2 = "UPDATE `utilisateur` SET `date`=NOW() WHERE login = '".$username."' ";

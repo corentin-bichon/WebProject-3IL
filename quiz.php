@@ -7,18 +7,25 @@
 		<title>Quiz - Ruthen Quiz</title>
 	</head>
 
-	<body onload="maFonc();">
+	<body onload="chargementDonneesQuiz();">
 
 		<?php 
 			if(isset($_GET['theme']) && $theme = $_GET['theme']) {
         		//Le quiz commence
     		} else {
-        		header('Location: ../theme.php');
-    		}
+        		header('Location: theme.php');
+    		} 
+
+    		if(isset($_GET['idtheme']) && $idtheme = $_GET['idtheme'] ) {  
+    			//Le quiz commence
+    		} else {
+        		header('Location: theme.php');
+    		}		
 		?>
 
 		<?php require_once 'extensions/navbar.php'; ?>
 
+		<?php echo '<input type="hidden" name="Id du theme courant" id="id-theme" value="'.$idtheme.'">' ?>
 		<div class="quiz-header">
 		    <h1 class="quiz-title"><?php echo $theme; ?></h1>
 		    <div id="text-right">
