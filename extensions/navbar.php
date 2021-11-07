@@ -8,6 +8,7 @@
 	    <a href="index.php">Accueil</a>
 	    <a href="theme.php">Thèmes</a>
 	   	<a href="quiz.php">Quiz</a>
+	    <a href="classement.php">Classement</a>
 
    		<?php
              session_start();

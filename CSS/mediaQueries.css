@@ -73,3 +73,10 @@
     }
 }
 
+/* Responsive téléphone */
+@media handheld {
+    .navbar {
+        margin-top: 120px;
+    }
+}
+

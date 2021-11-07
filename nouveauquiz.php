@@ -33,7 +33,7 @@
                           </div>
                     </div>
 
-                <?php for ( $i = 1; $i <= 2; $i++ ) {
+                <?php for ( $i = 1; $i <= 5; $i++ ) {
                     echo '<div class="ligne-nouveauquiz">
 					    <div class="entree-nouveauquiz question-nouveauquiz">
 					    	<input type="text" name="question'.$i.'" placeholder="question" required>
