@@ -91,8 +91,8 @@ function reponseQuestion($reponse) {
 }
 
 // Affich dans le lien sur quel theme nous sommes
-function commencerQuiz($nomtheme, $idtheme) {
-    document.location.href="quiz.php?theme=" + $nomtheme + "&idtheme=" + $idtheme + "";
+function commencerQuiz($nomtheme, $idtheme, $img) {
+    document.location.href="quiz.php?theme=" + $nomtheme + "&idtheme=" + $idtheme + "&img=" + $img +"";
 }
 
 // Affiche les éléments composants le fin du quiz et cache ceux qui n'y appartiennent pas

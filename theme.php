@@ -30,7 +30,7 @@
           <?php 
               foreach ($db->query('SELECT * FROM theme') as $theme) {
                   echo '<li class="theme">';
-                      echo '<div class="card" onclick="commencerQuiz(\''.$theme['nom'].'\', \''.$theme['id_theme'].'\')">' ;
+                      echo '<div class="card" onclick="commencerQuiz(\''.$theme['nom'].'\', \''.$theme['id_theme'].'\', \''.$theme['image'].'\')">' ;
                           $image = (($theme['image'] != NULL) ? $theme['image'] : 'logo_icon.png' ) ;
                           echo '<img src="ressources/images/'.$image.'" class="img-theme"></img>' ;
                           echo '<div class="card-text">';

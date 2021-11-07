@@ -20,7 +20,13 @@
     			//Le quiz commence
     		} else {
         		header('Location: theme.php');
-    		}		
+    		}	
+
+    		if(isset($_GET['img']) && $img = $_GET['img'] ) {  
+    			//Le quiz commence
+    		} else {
+        		header('Location: theme.php');
+    		}	
 		?>
 
 		<?php require_once 'extensions/navbar.php'; ?>
@@ -39,7 +45,7 @@
 		<div class="quiz-body">
 			<div class="quiz">
 				<div class="quiz-image">
-					<?php echo '<img src="ressources/images/'.$theme.'.jpg">' ?>
+					<?php echo '<img src="ressources/images/'.$img.'">' ?>
 				</div>
 				<div class="justify-quiz">
 					<div class="quiz-question">	
