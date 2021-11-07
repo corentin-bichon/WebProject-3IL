@@ -4,19 +4,20 @@
 Site Web à but non lucratif
 Projet réalisé à l'école 3IL à Rodez
 
-Auteurs : - BICHON-NOUGAILLAC Corentin 
-          - VAISSAC Erwann
+<h3> Auteurs </h3>
+      <p>  - BICHON-NOUGAILLAC Corentin </p>
+      <p> - VAISSAC Erwann </p>
 
-Description du Site
+<h3> Description du Site </h3>
 
 Site de Quiz public, il permet de tester ses connaissances sur de nombreux thèmes, et de ce comparer aux autres joueurs avec un système de classement.
 
-Description Techniques 
+<h3> Description Techniques </h3>
 
 Technologies utilisées : HTML5, CSS, PHP, Ajax, JavaScript, Json, MySQL, XML
 Serveur : Apacha
           
-Règles de conception : 
+<h4> Règles de conception : </h4>
 
 - Aucun code CSS n'est inclu dans nos page HTML directement
 - Chaque partie de code dans le CSS contient un commentaire indiquant la page et le rôle
@@ -27,14 +28,14 @@ Règles de conception :
  (Car elle pourrait accéder à la page en changeant l'url)
 -  Respecter l'indentation afin de rendre le code plus lisible, et le commenter
 
-Règles IHM : 
+<h4> Règles IHM : </h4>
 
 - Toutes nos fonctionnalités sont disponibles en 3 clics 
 - Un espace sobre et facile d'utilisation
 - Site responsive, donc peut être utilisé sur téléphone, tablette et ordinateur
 
 
-Respect du cahier des charges :
+<h4> Respect du cahier des charges : </h4>
 
 - Partie administration qui permet d'avoir plus de droit qu'un utilisateur lambda (Gérer les utilisateurs, créer un quiz)
 - Viewer de photo en JavaScript, permettant de visualiser les thèmes disponibles à l'accueil
@@ -43,4 +44,5 @@ Respect du cahier des charges :
 - 2 Espaces, espace utilisateur : Créer un compte, se connecter, visualiser les news, choisir un thème et faire le quiz, voir le classement des joueurs 
              espace Administrateur : En plus de l'espace utilisateur, peuvent gérer les comptes(visionner et supprimer), et gérer les Quiz(créer un quiz)
 - Utilisations de la technologie responsive flex CSS et les médias queries
+- Utilisation de fichier Json et XML afin de comprendre les différents formats de données
 

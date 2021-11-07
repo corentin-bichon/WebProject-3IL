@@ -67,18 +67,10 @@
 			</div>
 
 			<div class="presentation angle-haut angle-bas"> 
-				<div>
-				    Ruthen Quiz
-	
-				</div>
-	
+
 						<br><br><br><br><br>
 						<br><br><br><br><br>
-	
-	
-				<div> 
-					Présentation du site de Quiz
-				</div>
+			
 	
 			</div>
 
