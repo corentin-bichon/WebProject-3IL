@@ -38,7 +38,7 @@ if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['preno
                   $rep = $db->query($requete2);
 
                  if($rep) {
-                    $_SESSION['username'] = $username;
+
                     header('Location: ../index.php?connexion=1');
                  } else {
                     header('Location: ../compte.php?erreur=2');

@@ -20,6 +20,7 @@
     			//Le quiz commence
     		} else {
         		header('Location: theme.php');
+
     		}	
 
     		if(isset($_GET['img']) && $img = $_GET['img'] ) {  
@@ -27,6 +28,14 @@
     		} else {
         		header('Location: theme.php');
     		}	
+
+    		}
+
+    		if(isset($_GET['img']) && $img = $_GET['img'] ) {
+                //Le quiz commence
+            } else {
+                $img = 'logo_icon.png' ;
+            }
 		?>
 
 		<?php require_once 'extensions/navbar.php'; ?>

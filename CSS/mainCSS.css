@@ -66,14 +66,14 @@ header {
     align-items: center;   
     justify-content: flex-end;  
 
-    padding:0;  
-    background-color: #DBF6E9 ;   
-    opacity: 0.90;  
+    padding:0;
+    background-color: var(--primary-light-color);
+    opacity: 0.90;
     width: 100%;
 }
 
 .navbar a:hover {
-  background-color: #9DDFD3;
+  background-color: var(--primary-light-color);
   color: #31326F;
   border-color: #31326F;
 }
@@ -85,7 +85,7 @@ header {
     margin: 1rem;     
     padding: 0.4rem 0;  
     text-align: center;          
-    background-color: #1ABC9C;   
+    background-color: var(--primary-color);
     color: #fff;                 
     text-decoration: none;       
     border: 1px solid #fff;      
@@ -123,12 +123,14 @@ section {
     color: #31326F;
     text-align: center;
     margin: 50px;
+    font-size: 2rem;
+    margin-bottom: 130px;
 }
 
 .presentation {
 
     position: relative;
-    background-color: #DBF6E9;
+    background-color: var(--primary-light-color);
     z-index: 1;
     margin-top: 400px;
     margin-bottom: 400px;
@@ -195,7 +197,7 @@ footer {
     padding-top: 10px;
     padding-bottom: 10px;
     margin: 0;
-    background-color: #DBF6E9 ; 
+    background-color: var(--primary-light-color);
     text-align: center;
 }  
 
@@ -249,8 +251,7 @@ footer {
     border-radius: 10px;
     overflow: hidden;
     padding: 50px ;
-    background: #9152f8;
-    background: -webkit-linear-gradient(top, #7579ff, #b224ef);
+    background: -webkit-linear-gradient(bottom , #fcda7b, var(--primary-light-color));
     margin: 30px auto 100px auto;
 
     justify-content: center;
@@ -1084,11 +1085,10 @@ body::before {
     border-radius: 10px;
     overflow: hidden;
     padding: 50px ;
-    background: #DBF6E9;
+    background: var(--primary-light-color);
     margin: 30px auto 100px auto;
 
     display:flex ;
-    align-items: flex-center;
     flex-direction: column ;
 }
 
