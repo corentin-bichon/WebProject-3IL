@@ -1,0 +1,22 @@
+@import url('mainCSS.css') ;
+@import url('mediaQueries.css') ;
+@charset 'UTF-8' ;
+
+
+ :root {
+
+    --text-primary-color : #4f555e;
+    --text-secondary-color : #4D7C2e;
+    --primary-color: #005fad;
+    --secondary-color: #ad0017;
+    --third-color: #0090ad;
+    --background-site: #F9F9F9;
+    --background-primary-color: #f5f7fa;
+    --background-secondary-color: #b8c6db;
+    --title-primary-color: #005fad;
+    --title-secondary-color: #ad0017;
+    --primary-light-color: #d4ebff;
+    --secondary-light-color: #ffcfd5;
+    --third-light-color: #cff7ff;
+    
+}

@@ -1,0 +1,16 @@
+<CATALOG>
+    <colonne>
+        <titre> Pseudo </titre>
+        <image> ressources/icon/utilisateur.png </image>
+    </colonne>
+
+    <colonne>
+        <titre> Score </titre>
+        <image> ressources/icon/podium.png </image>
+    </colonne>
+
+    <colonne>
+        <titre> Nombre de parties jouées </titre>
+        <image> ressources/icon/nbquiz.png  </image>
+    </colonne>
+</CATALOG>
