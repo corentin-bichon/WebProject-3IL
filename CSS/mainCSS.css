@@ -1085,11 +1085,10 @@ body::before {
     border-radius: 10px;
     overflow: hidden;
     padding: 50px ;
-    background: #DBF6E9;
+    background: var(--primary-light-color);
     margin: 30px auto 100px auto;
 
     display:flex ;
-    align-items: flex-center;
     flex-direction: column ;
 }
 

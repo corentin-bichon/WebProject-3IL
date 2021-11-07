@@ -17,7 +17,7 @@
         die();
     }
 
-    if (isset($_SESSION['id']) && $idutilisateur = $_SESSION['id'] && $score != NULL && $idtheme != NULL) {
+    if (isset($_SESSION['id_utilisateurquiz']) && $idutilisateur = $_SESSION['id_utilisateurquiz'] && $score != NULL && $idtheme != NULL) {
     	$req = 'INSERT INTO score (id_utilisateur, id_theme, score) VALUES ('.$idutilisateur.', '.$idtheme.', '.$score.')';
   	    $db->query($req);
     }	

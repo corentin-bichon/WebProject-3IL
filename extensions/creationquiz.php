@@ -27,7 +27,7 @@ if(isset($_POST['nomquiz'])) {
           if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
                print "SUCCES lors du téléchargement de l'image <br/>";
           } else {
-               print "Erreur lors du téléchargement de l'image : ".$e->getMessage()."<br/>";
+               print "Erreur lors du téléchargement de l'image <br/>";
           }
       }
 
