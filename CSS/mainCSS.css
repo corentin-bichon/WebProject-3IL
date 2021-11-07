@@ -836,16 +836,17 @@ body::before {
 }
 
 .quiz-image {
-    display: flex;
-    max-width: 100%;
+    display: flex;  
     padding: 10px 50px 10px 50px;
-    justify-content: center;
+    justify-content: center;   
 }
 
 .quiz-image > img {
     border-radius: 10px;
     box-shadow:4px 4px 6px var(--primary-light-color);
     transition: transform 0.3s ease-in-out;
+    max-width: 100%;
+    height: auto;
 }
 
 .quiz-image:hover > img {
@@ -918,6 +919,48 @@ body::before {
     color: var(--text-primary-color);
 }
 
+/* Fenêtre de fin indiquant le score */
+.quiz-fin {
+    display: flex;
+    position: relative;
+    width: 1000px;   
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow:6px 6px 8px 0 var(--primary-light-color);   
+    justify-content: center;
+    max-width: 40%;
+    padding: 25px 45px;
+}
+
+.quiz-score {
+    color: var(--text-primary-color);
+    text-align: center;
+    font-size: 50px;
+    font-weight: 600;
+}
+
+.texte-resultat {
+    color: var(--text-primary-color);
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.quiz-redirection {
+    display:flex;
+    justify-content: space-around;
+    padding-top: 30px;
+}
+
+.quiz-redirection > a {
+    text-align:center;
+}
+
+/* Bouton utilisé dans le quiz */
 .btn-quiz {
     text-decoration: none;
     text-align: center;
@@ -965,6 +1008,7 @@ body::before {
     padding: 20px;
 }
 
+/* Bouton pour passer à la question suivante */
 .btn-suivant {
     font-weight: bold;
     font-size: 15px;
@@ -1006,13 +1050,7 @@ body::before {
       right: 0;
 }
 
-.btn-invisible {
-    display: none;
-}
-
-
 /* Création de Quiz */
-
 .quiz-valider {
     margin: 50px auto auto auto;
     width: 200px;

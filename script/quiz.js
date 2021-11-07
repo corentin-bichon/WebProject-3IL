@@ -1,5 +1,27 @@
 //document.addEventListener('DOMContentLoaded', set_quiz());
 
+var tabQuiz;
+var curQuestion = 1;
+var score = 0;
+const nbQuestions = 5;
+
+function maFonc() {
+
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+		
+	if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {			
+		tabQuiz = JSON.parse(xmlhttp.responseText);
+		document.getElementById('premiere-proposition').innerHTML = tabQuiz[curQuestion - 1].reponse_A;
+	    document.getElementById('deuxieme-proposition').innerHTML = tabQuiz[curQuestion - 1].reponse_B;
+	    document.getElementsByClassName("quiz-question")[0].innerHTML = tabQuiz[curQuestion - 1].question;
+	}
+}
+
+	xmlhttp.open("GET", "extensions/traitement-quiz.php", true);
+	xmlhttp.send();
+}
+
 function set_quiz() {
 	cacherSupplement();
 }
@@ -10,10 +32,7 @@ function afficherSupplement() {
 
 function cacherSupplement() {
 	document.getElementById("supplement_reponse").style.display = "none";
-}
-
-function afficherResultatQuiz() {
-	document.getElementById("fin-quiz").style.display = "block";
+	document.getElementsByClassName("quiz-fin")[0].style.display = "none";
 }
 
 // Fonction qui fait progresser les éléments indicateurs d'avancement du quiz
@@ -24,66 +43,72 @@ function quizProgress() {
 	const curProgress = document.getElementById('barreProgression');
 	const pourcentageCourant = Number(curProgressStyle.width.slice(0, -1));
 
-	if (pourcentageCourant >= 100 || parseInt(curIndexQuestion.innerHTML, 10) >= 5) {
-		curProgress.style.width = 0 + "%";
-		document.getElementById('text-right').style.display = "none";
-	} else {				
-  		const nouveauPercentage = Math.min(pourcentageCourant + 20, 100);
+	if (pourcentageCourant < 100 && curQuestion <= nbQuestions) {
+		const nouveauPercentage = Math.min(pourcentageCourant + 20, 100);
   		curProgressStyle.width = `${nouveauPercentage}%`;
-		curIndexQuestion.innerHTML = parseInt(curIndexQuestion.innerHTML, 10) + 1;
+		curIndexQuestion.innerHTML = curQuestion + 1;
 	}
-			
+	curQuestion++;		
 }
 
 function chargerQuestion() {
-	//Afficher le bouton suivant et masquer les boutons de proposition
-	document.getElementsByClassName("proposition-gauche")[0].style.display = "block";
-	document.getElementsByClassName("proposition-droite")[0].style.display = "block";
-	// Afficher le bouton suivant et masquer les boutons de proposition
-	document.getElementsByClassName("btn-suivant")[0].style.display = "none";
-	cacherSupplement(); // Faire avancer le compteur de question répondue et la barre de progression
+	if (curQuestion != nbQuestions) {
+		quizProgress();
+		affichagePreQuestion();		
+	} else {
+		document.getElementById('barreProgression').style.width = 0 + "%";
+		document.getElementById('text-right').style.display = "none";
+		affichageFinQuiz();
+
+	}
+		
 	//document.write('<?php hello() ?>'); Passer eu prochain quiz
 }
 
 function reponseQuestion($reponse) {
-	document.getElementsByClassName("proposition-gauche")[0].style.display = "none";
-	document.getElementsByClassName("proposition-droite")[0].style.display = "none";
-	document.getElementsByClassName("btn-suivant")[0].style.display = "block";
-	afficherSupplement();
-	quizProgress();
+	affichagePostQuestion();	
+	$texteReponse = $reponse == "reponse_A" ? tabQuiz[curQuestion - 1].reponse_A : tabQuiz[curQuestion - 1].reponse_B;
+
+	if ($texteReponse == tabQuiz[curQuestion - 1].bonne_reponse) {
+		document.getElementsByClassName("quiz-bonne-reponse")[0].style.display = "block";
+		score++;
+	} else {
+		document.getElementsByClassName("quiz-mauvaise-reponse")[0].style.display = "block";
+	}	
 }
 
 function commencerQuiz(nomtheme) {
     document.location.href="quiz.php?theme=" + nomtheme + "";
 }
 
-function maFonc() {
+function affichageFinQuiz() {
+	document.getElementsByClassName("quiz")[0].style.display = "none";
+	document.getElementsByClassName("quiz-supplement-reponse")[0].style.display = "none";
+	document.getElementsByClassName("quiz-fin")[0].style.display = "block";
+	document.getElementsByClassName("quiz-score")[0].innerHTML = score + "/" + nbQuestions;
+}
 
-	var tabQuiz = new Array(5);
-	var xmlhttp = new XMLHttpRequest();
+function affichagePostQuestion() {
+	document.getElementsByClassName("proposition-gauche")[0].style.display = "none";
+	document.getElementsByClassName("proposition-droite")[0].style.display = "none";
+	document.getElementsByClassName("btn-suivant")[0].style.display = "block";
+	document.getElementsByClassName("texte-supplement-reponse")[0].innerHTML = tabQuiz[curQuestion - 1].supplement_reponse;
+	document.getElementsByClassName("quiz-reponse")[0].innerHTML += tabQuiz[curQuestion - 1].bonne_reponse;
+	afficherSupplement();
+}
 
-	xmlhttp.onreadystatechange = function() {
-		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-			document.getElementById("indexQuestion").innerHTML = xmlhttp.responseText;
-			tabQuiz = JSON.parse(xmlhttp.responseText);
-			for (i = 0; i < tabQuiz.length; i++) {
-			    document.getElementsByClassName("texte-supplement-reponse")[0].innerHTML += "salut !!"/*"id : " + tabQuiz[i].id_quiz
-			    + "question : " + tabQuiz[i].question
-			    + "reponse_A : " + tabQuiz[i].reponse_A
-			    + "reponse_B : " + tabQuiz[i].reponse_B
-			    + "supplement_reponse : " + tabQuiz[i].supplement_reponse
-			    + "bonne_reponse : " + tabQuiz[i].bonne_reponse
-			    + "<BR/>"*/;
-			}
-			/*for (i = 0; i < tabQuiz.length; i++) {
-				tabQuiz[i] = new Array(6);
-				for (j = 0; j < tabQuiz[i].length; j++)
-				alert(tabQuiz [i][j]);
-
-			}*/
-		}
-	}
-
-	xmlhttp.open("GET", "quiz.php", true);
-	xmlhttp.send();
+function affichagePreQuestion() {
+	//Afficher le bouton suivant et masquer les boutons de proposition
+	document.getElementsByClassName("proposition-gauche")[0].style.display = "block";
+	document.getElementsByClassName("proposition-droite")[0].style.display = "block";
+	// Afficher le bouton suivant et masquer les boutons de proposition
+	document.getElementsByClassName("btn-suivant")[0].style.display = "none";
+	document.getElementsByClassName("texte-supplement-reponse")[0].innerHTML = "";
+	document.getElementsByClassName("quiz-reponse")[0].innerHTML = "La bonne réponse est : ";
+	document.getElementById('premiere-proposition').innerHTML = tabQuiz[curQuestion - 1].reponse_A;
+	document.getElementById('deuxieme-proposition').innerHTML = tabQuiz[curQuestion - 1].reponse_B;
+	document.getElementsByClassName("quiz-question")[0].innerHTML = tabQuiz[curQuestion - 1].question;
+	document.getElementsByClassName("quiz-bonne-reponse")[0].style.display = "none";
+	document.getElementsByClassName("quiz-mauvaise-reponse")[0].style.display = "none";
+	cacherSupplement(); // Faire avancer le compteur de question répondue et la barre de progression
 }
